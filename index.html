@@ -2,17 +2,27 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>6 Months of Us</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-    <!-- OPENING SCREEN -->
+
+    <!-- =========================
+         OPENING SCREEN
+    ========================== -->
 
     <section id="opening" class="opening-screen">
 
@@ -20,7 +30,11 @@
 
             <h1>6 months of us</h1>
 
-            <button id="playButton" class="play-button" aria-label="Start">
+            <button
+                id="playButton"
+                class="play-button"
+                aria-label="Start"
+            >
                 <span>▶</span>
             </button>
 
@@ -29,60 +43,96 @@
     </section>
 
 
-    <!-- TIMELINE -->
+
+    <!-- =========================
+         TIMELINE
+    ========================== -->
 
     <main id="timeline" class="timeline-screen">
 
-        <!-- The horizontal timeline -->
+
+        <!-- Main horizontal timeline -->
 
         <div class="timeline-line"></div>
 
 
-        <!-- Vertical branch connecting timeline to memory -->
+        <!-- Vertical connection -->
 
-        <div id="memoryBranch" class="memory-branch"></div>
+        <div
+            id="memoryBranch"
+            class="memory-branch"
+        ></div>
 
 
-        <!-- Point at the outer end of the branch -->
+        <!-- Point at the outer end -->
 
-        <div id="memoryPoint" class="memory-point"></div>
+        <div
+            id="memoryPoint"
+            class="memory-point"
+        ></div>
 
 
         <!-- Current memory -->
 
-        <div id="memory" class="memory">
+        <div
+            id="memory"
+            class="memory"
+        >
 
-            <img id="memoryImage" src="" alt="">
+            <img
+                id="memoryImage"
+                src=""
+                alt=""
+            >
+
 
             <div class="memory-info">
 
-                <div id="memoryDate" class="memory-date"></div>
+                <div
+                    id="memoryDate"
+                    class="memory-date"
+                ></div>
+
 
                 <h2 id="memoryTitle"></h2>
 
-                <p id="memoryDescription"></p>
+
+                <p
+                    id="memoryDescription"
+                ></p>
 
             </div>
 
         </div>
 
 
-        <!-- Next button -->
+        <!-- Next arrow -->
 
-        <button id="nextButton" class="next-button">
+        <button
+            id="nextButton"
+            class="next-button"
+            aria-label="Next memory"
+        >
 
-            <span class="next-arrow">→</span>
+            <span class="arrow-line"></span>
 
-            <span class="next-label">NEXT</span>
+            <span class="arrow-head"></span>
 
         </button>
+
 
     </main>
 
 
-    <!-- ENDING -->
 
-    <section id="ending" class="ending-screen">
+    <!-- =========================
+         ENDING
+    ========================== -->
+
+    <section
+        id="ending"
+        class="ending-screen"
+    >
 
         <div class="ending-content">
 
@@ -93,6 +143,7 @@
         </div>
 
     </section>
+
 
 
     <script src="script.js"></script>
