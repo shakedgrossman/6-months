@@ -2,41 +2,189 @@
    MEMORIES
 ================================= */
 
+/*
+   The memories are listed manually so
+   GitHub's alphabetical/binary-looking
+   file order does not affect the timeline.
+*/
+
 const memories = [
 
     {
-        image: "Images/01.jpg",
-        date: "15.02.2026",
-        title: "The beginning",
-        description: "Our story started here."
+        file: "Memory 1.jpg"
     },
 
     {
-        image: "Images/02.jpg",
-        date: "28.02.2026",
-        title: "A little moment",
-        description: "One of those moments I never want to forget."
+        file: "Memory 2.jpg"
     },
 
     {
-        image: "Images/03.jpg",
-        date: "12.03.2026",
-        title: "Another memory",
-        description: "And somehow, everything kept getting better."
+        file: "Memory 2.5.JPG"
     },
 
     {
-        image: "Images/04.jpg",
-        date: "01.04.2026",
-        title: "That day",
-        description: "A memory worth keeping forever."
+        file: "Memory 3.jpg"
     },
 
     {
-        image: "Images/05.jpg",
-        date: "20.04.2026",
-        title: "Us",
-        description: "And this is only the beginning."
+        file: "Memory 4.JPG"
+    },
+
+    {
+        file: "Memory 5.MP4",
+        type: "video"
+    },
+
+    {
+        file: "Memory 6.JPG"
+    },
+
+    {
+        file: "Memory 7.JPG"
+    },
+
+    {
+        file: "Memory 8.JPG"
+    },
+
+    {
+        file: "Memory 9.JPG"
+    },
+
+    {
+        file: "Memory 10.JPG"
+    },
+
+    {
+        file: "Memory 11.png"
+    },
+
+    {
+        file: "Memory 12.JPG"
+    },
+
+    {
+        file: "Memory 13.JPG"
+    },
+
+    {
+        file: "Memory 14.JPG"
+    },
+
+    {
+        file: "Memory 15.png"
+    },
+
+    {
+        file: "Memory 16.jpg"
+    },
+
+    {
+        file: "Memory 17.jpg"
+    },
+
+    {
+        file: "Memory 18.jpg"
+    },
+
+    {
+        file: "Memory 19.JPG"
+    },
+
+    {
+        file: "Memory 20.jpg"
+    },
+
+    {
+        file: "Memory 21.JPG"
+    },
+
+    {
+        file: "Memory 22.JPG"
+    },
+
+    {
+        file: "Memory 22.5.JPG"
+    },
+
+    {
+        file: "Memory 23.JPG"
+    },
+
+    {
+        file: "Memory 23.png"
+    },
+
+    {
+        file: "Memory 24.png"
+    },
+
+    {
+        file: "Memory 25.JPG"
+    },
+
+    {
+        file: "Memory 26.JPG"
+    },
+
+    {
+        file: "Memory 28.JPG"
+    },
+
+    {
+        file: "Memory 29.JPG"
+    },
+
+    {
+        file: "Memory 30.HEIC"
+    },
+
+    {
+        file: "Memory 32.JPG"
+    },
+
+    {
+        file: "Memory 33.HEIC"
+    },
+
+    {
+        file: "Memory 33.5.JPG"
+    },
+
+    {
+        file: "Memory 34.JPG"
+    },
+
+    {
+        file: "Memory 34.5.JPG"
+    },
+
+    {
+        file: "Memory 35.JPG"
+    },
+
+    {
+        file: "Memory 36.JPG"
+    },
+
+    {
+        file: "Memory 37.JPG"
+    },
+
+    {
+        file: "Memory 38.png"
+    },
+
+    {
+        file: "Memory 39.png"
+    },
+
+    {
+        file: "Memory 40.png"
+    },
+
+    {
+        file: "Memory 41.png"
     }
 
 ];
@@ -64,7 +212,7 @@ const point =
 const memory =
     document.getElementById("memory");
 
-const image =
+const mediaContainer =
     document.getElementById("memoryImage");
 
 const date =
@@ -96,6 +244,94 @@ const replayButton =
 let currentMemory = 0;
 
 let changing = false;
+
+
+/* =================================
+   CREATE MEDIA
+================================= */
+
+function updateMedia(item) {
+
+    const path =
+        "Images/" + item.file;
+
+
+    /*
+       If the memory is a video,
+       replace the image with a video.
+    */
+
+    if (item.type === "video") {
+
+        const video =
+            document.createElement("video");
+
+        video.src = path;
+
+        video.controls = true;
+
+        video.playsInline = true;
+
+        video.preload = "metadata";
+
+        video.className =
+            "memory-media";
+
+
+        mediaContainer.replaceWith(
+            video
+        );
+
+
+        return video;
+
+    }
+
+
+    /*
+       Normal image.
+    */
+
+    let img =
+        document.getElementById(
+            "memoryImage"
+        );
+
+
+    /*
+       If the previous memory was a video,
+       recreate the image element.
+    */
+
+    if (!img) {
+
+        img =
+            document.createElement("img");
+
+        img.id =
+            "memoryImage";
+
+        img.className =
+            "memory-media";
+
+        memory.insertBefore(
+            img,
+            document.querySelector(
+                ".memory-info"
+            )
+        );
+
+    }
+
+
+    img.src = path;
+
+    img.alt =
+        item.file;
+
+    return img;
+
+}
 
 
 /* =================================
@@ -165,23 +401,26 @@ function showMemory(index) {
 
 
     /* =================================
-       CONTENT
+       MEDIA
     ================================= */
 
-    image.src =
-        item.image;
+    updateMedia(item);
 
-    image.alt =
-        item.title;
+
+    /* =================================
+       TEMPORARY TEXT
+    ================================= */
 
     date.textContent =
-        item.date;
+        `Memory ${index + 1}`;
+
 
     title.textContent =
-        item.title;
+        "";
+
 
     description.textContent =
-        item.description;
+        "";
 
 
     /* =================================
@@ -332,7 +571,7 @@ nextButton.addEventListener(
 
 
         /* =================================
-           LOAD NEXT MEMORY
+           LOAD NEXT
         ================================= */
 
         setTimeout(
@@ -386,8 +625,6 @@ previousButton.addEventListener(
         changing = true;
 
 
-        /* Current memory leaves */
-
         memory.classList.add(
             "exit"
         );
@@ -396,8 +633,6 @@ previousButton.addEventListener(
             "activate"
         );
 
-
-        /* Load previous */
 
         setTimeout(
             () => {
