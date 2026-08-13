@@ -1,50 +1,36 @@
 /* =================================
-   COLOR PALETTE
+   COLORS
 ================================= */
 
 :root {
-
     --background: #101419;
-
-    --timeline: #384047;
-
-    --light: #D8CBB8;
-
-    --secondary: #918B83;
-
+    --beige: #D8CBB8;
+    --muted: #918B83;
+    --line: #384047;
 }
 
 
 /* =================================
-   GENERAL
+   RESET
 ================================= */
 
 * {
-
-    margin: 0;
-
-    padding: 0;
-
     box-sizing: border-box;
-
+    margin: 0;
+    padding: 0;
 }
 
 
 html,
 body {
-
     width: 100%;
-
     height: 100%;
-
 }
 
 
 body {
-
     background: var(--background);
-
-    color: var(--light);
+    color: var(--beige);
 
     font-family:
         Georgia,
@@ -52,63 +38,44 @@ body {
         serif;
 
     overflow: hidden;
-
 }
 
 
 /* =================================
-   OPENING SCREEN
+   OPENING
 ================================= */
 
-.opening-screen {
-
+#opening {
     position: fixed;
 
     inset: 0;
 
     width: 100%;
-
     height: 100vh;
 
     background: var(--background);
 
     display: flex;
+    flex-direction: column;
 
     align-items: center;
-
     justify-content: center;
 
-    z-index: 100;
-
-    opacity: 1;
-
-    visibility: visible;
+    z-index: 10;
 
     transition:
-        opacity 0.9s ease,
-        visibility 0.9s ease;
-
+        opacity 0.8s ease,
+        visibility 0.8s ease;
 }
 
 
-.opening-screen.hidden {
-
+#opening.hidden {
     opacity: 0;
-
     visibility: hidden;
-
 }
 
 
-.opening-content {
-
-    text-align: center;
-
-}
-
-
-.opening-content h1 {
-
+#opening h1 {
     font-size:
         clamp(2.5rem, 7vw, 5rem);
 
@@ -116,224 +83,71 @@ body {
 
     letter-spacing: 0.04em;
 
-    color: var(--light);
-
     margin-bottom: 45px;
-
 }
 
 
-/* =================================
-   PLAY BUTTON
-================================= */
+#playButton {
+    width: 58px;
+    height: 58px;
 
-.play-button {
-
-    width: 62px;
-
-    height: 62px;
-
-    border:
-        1px solid
-        var(--timeline);
+    border: 1px solid var(--line);
 
     border-radius: 50%;
 
     background: transparent;
 
-    color: var(--light);
-
-    cursor: pointer;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    margin: auto;
-
-    transition:
-        transform 0.3s ease,
-        background 0.3s ease;
-
-}
-
-
-.play-button span {
+    color: var(--beige);
 
     font-size: 15px;
 
-    transform: translateX(2px);
+    cursor: pointer;
 
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
 }
 
 
-.play-button:hover {
-
-    background: var(--light);
-
+#playButton:hover {
+    background: var(--beige);
     color: var(--background);
 
     transform: scale(1.05);
-
 }
 
 
 /* =================================
-   TIMELINE SCREEN
+   TIMELINE
 ================================= */
 
-.timeline-screen {
-
+#timeline {
     position: fixed;
 
     inset: 0;
 
     width: 100%;
-
     height: 100vh;
 
     background: var(--background);
 
-    overflow: hidden;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
 
     opacity: 0;
 
-    visibility: hidden;
+    pointer-events: none;
 
     transition:
-        opacity 0.9s ease,
-        visibility 0.9s ease;
-
+        opacity 0.8s ease;
 }
 
 
-.timeline-screen.active {
-
+#timeline.active {
     opacity: 1;
-
-    visibility: visible;
-
-}
-
-
-/* =================================
-   PERMANENT VERTICAL TIMELINE
-================================= */
-
-.timeline-axis {
-
-    position: absolute;
-
-    left: 10%;
-
-    top: 7%;
-
-    bottom: 7%;
-
-    width: 1px;
-
-    background: var(--timeline);
-
-}
-
-
-/* =================================
-   HORIZONTAL MEMORY CONNECTOR
-================================= */
-
-.memory-connector {
-
-    position: absolute;
-
-    left: 10%;
-
-    width: 30%;
-
-    height: 1px;
-
-    background: var(--timeline);
-
-    z-index: 5;
-
-    transition:
-        top 0.6s ease;
-
-}
-
-
-/* =================================
-   MEMORY POINT
-================================= */
-
-.memory-point {
-
-    position: absolute;
-
-    left: 40%;
-
-    width: 9px;
-
-    height: 9px;
-
-    border-radius: 50%;
-
-    background: var(--timeline);
-
-    transform:
-        translate(-50%, -50%)
-        scale(1);
-
-    z-index: 20;
-
-}
-
-
-.memory-point.activate {
-
-    background: var(--light);
-
-    animation:
-        pointPulse 0.8s ease;
-
-}
-
-
-@keyframes pointPulse {
-
-    0% {
-
-        transform:
-            translate(-50%, -50%)
-            scale(1);
-
-    }
-
-    35% {
-
-        transform:
-            translate(-50%, -50%)
-            scale(1.7);
-
-    }
-
-    60% {
-
-        transform:
-            translate(-50%, -50%)
-            scale(1.2);
-
-    }
-
-    100% {
-
-        transform:
-            translate(-50%, -50%)
-            scale(1);
-
-    }
-
+    pointer-events: auto;
 }
 
 
@@ -341,172 +155,52 @@ body {
    MEMORY
 ================================= */
 
-.memory {
-
-    position: absolute;
-
-    left: 42%;
-
-    width:
-        min(470px, 48vw);
+#memory {
+    width: min(75vw, 650px);
 
     display: flex;
-
     flex-direction: column;
 
     align-items: center;
 
     text-align: center;
 
-    opacity: 0;
-
-    pointer-events: none;
+    opacity: 1;
 
     transition:
-        transform 0.9s
-        cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.65s ease;
-
+        transform 0.7s ease,
+        opacity 0.7s ease;
 }
 
 
-/* =================================
-   MEMORY IMAGE
-================================= */
-
-.memory img {
-
-    width:
-        min(420px, 44vw);
-
-    height: 380px;
-
-    object-fit: cover;
-
+#memoryImage {
     display: block;
 
+    width: min(70vw, 600px);
+
+    height: min(65vh, 500px);
+
+    object-fit: contain;
+
+    border: none;
 }
 
 
-/* =================================
-   MEMORY TEXT
-================================= */
-
-.memory-info {
-
-    margin-top: 18px;
-
-    max-width: 420px;
-
-}
-
-
-.memory-date {
+#memoryDate {
+    margin-top: 22px;
 
     font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-    font-size: 0.65rem;
+    font-size: 0.7rem;
 
-    letter-spacing: 0.2em;
+    letter-spacing: 0.18em;
 
     text-transform: uppercase;
 
-    color: var(--secondary);
-
-    margin-bottom: 9px;
-
-}
-
-
-.memory-info h2 {
-
-    font-size: 1.7rem;
-
-    font-weight: 400;
-
-    color: var(--light);
-
-    margin-bottom: 9px;
-
-}
-
-
-.memory-info p {
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 0.85rem;
-
-    line-height: 1.7;
-
-    color: var(--secondary);
-
-}
-
-
-/* =================================
-   MEMORY ABOVE TIMELINE
-================================= */
-
-.memory.above {
-
-    top:
-        calc(50% - 400px);
-
-    transform:
-        translateX(120vw);
-
-}
-
-
-.memory.above.show {
-
-    transform:
-        translateX(0);
-
-}
-
-
-/* =================================
-   MEMORY BELOW TIMELINE
-================================= */
-
-.memory.below {
-
-    top:
-        calc(50% + 65px);
-
-    transform:
-        translateX(120vw);
-
-}
-
-
-.memory.below.show {
-
-    transform:
-        translateX(0);
-
-}
-
-
-/* =================================
-   MEMORY EXIT
-================================= */
-
-.memory.exit {
-
-    transform:
-        translateX(-120vw) !important;
-
-    opacity: 0;
-
+    color: var(--muted);
 }
 
 
@@ -514,242 +208,66 @@ body {
    NAVIGATION
 ================================= */
 
-.navigation-button {
-
+.nav-button {
     position: absolute;
 
     left: 50%;
 
-    width: 46px;
-
-    height: 46px;
+    width: 50px;
+    height: 50px;
 
     border: none;
 
     background: transparent;
 
+    color: var(--beige);
+
+    font-size: 27px;
+
+    font-family: Georgia, serif;
+
     cursor: pointer;
 
-    z-index: 50;
+    z-index: 20;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     transition:
+        opacity 0.3s ease,
         transform 0.3s ease;
-
 }
 
 
-/* =================================
-   PREVIOUS — UP
-================================= */
-
-.previous-button {
-
+.previous {
     top: 3%;
 
     transform:
         translateX(-50%);
-
 }
 
 
-.previous-arrow {
-
-    width: 14px;
-
-    height: 14px;
-
-    border-left:
-        1px solid
-        var(--light);
-
-    border-top:
-        1px solid
-        var(--light);
-
-    transform:
-        rotate(45deg);
-
-}
-
-
-.previous-button:hover {
-
-    transform:
-        translateX(-50%)
-        translateY(-5px);
-
-}
-
-
-/* =================================
-   NEXT — DOWN
-================================= */
-
-.next-button {
-
+.next {
     bottom: 3%;
 
     transform:
         translateX(-50%);
-
 }
 
 
-.next-arrow {
-
-    width: 14px;
-
-    height: 14px;
-
-    border-right:
-        1px solid
-        var(--light);
-
-    border-bottom:
-        1px solid
-        var(--light);
-
+.previous:hover {
     transform:
-        rotate(45deg);
-
+        translateX(-50%)
+        translateY(-5px);
 }
 
 
-.next-button:hover {
-
+.next:hover {
     transform:
         translateX(-50%)
         translateY(5px);
-
-}
-
-
-/* =================================
-   ENDING
-================================= */
-
-.ending-screen {
-
-    position: fixed;
-
-    inset: 0;
-
-    width: 100%;
-
-    height: 100vh;
-
-    background: var(--background);
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    transition:
-        opacity 1s ease,
-        visibility 1s ease;
-
-    z-index: 200;
-
-}
-
-
-.ending-screen.active {
-
-    opacity: 1;
-
-    visibility: visible;
-
-}
-
-
-.ending-content h2 {
-
-    font-size:
-        clamp(2.3rem, 6vw, 5rem);
-
-    font-weight: 400;
-
-    color: var(--light);
-
-    margin-bottom: 15px;
-
-}
-
-
-.ending-content p {
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 0.75rem;
-
-    letter-spacing: 0.2em;
-
-    text-transform: uppercase;
-
-    color: var(--secondary);
-
-    margin-bottom: 30px;
-
-}
-
-
-/* =================================
-   REPLAY
-================================= */
-
-.replay-button {
-
-    width: 46px;
-
-    height: 46px;
-
-    border:
-        1px solid
-        var(--timeline);
-
-    border-radius: 50%;
-
-    background: transparent;
-
-    color: var(--light);
-
-    cursor: pointer;
-
-    font-size: 22px;
-
-    transition:
-        transform 0.3s ease,
-        background 0.3s ease;
-
-}
-
-
-.replay-button:hover {
-
-    background: var(--light);
-
-    color: var(--background);
-
-    transform:
-        rotate(-25deg);
-
 }
 
 
@@ -757,76 +275,21 @@ body {
    MOBILE
 ================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
 
-    .timeline-axis {
-
-        left: 7%;
-
+    #memory {
+        width: 88vw;
     }
 
 
-    .memory-connector {
-
-        left: 7%;
-
-        width: 27%;
-
+    #memoryImage {
+        width: 86vw;
+        height: 62vh;
     }
 
 
-    .memory-point {
-
-        left: 34%;
-
-    }
-
-
-    .memory {
-
-        left: 36%;
-
-        width: 55vw;
-
-    }
-
-
-    .memory img {
-
-        width: 55vw;
-
-        height: 320px;
-
-    }
-
-
-    .memory.above {
-
-        top:
-            calc(50% - 335px);
-
-    }
-
-
-    .memory.below {
-
-        top:
-            calc(50% + 60px);
-
-    }
-
-
-    .previous-button {
-
-        top: 2%;
-
-    }
-
-
-    .next-button {
-
-        bottom: 2%;
-
+    #opening h1 {
+        font-size: 2.4rem;
     }
 
 }
