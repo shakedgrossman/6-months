@@ -1,121 +1,117 @@
 const memories = [
-    {
-        file: "Memory 1.jpg"
-    }
+    "Memory 1.jpg",
+    "Memory 2.jpg",
+    "Memory 2.5.JPG",
+    "Memory 3.jpg",
+    "Memory 4.JPG"
 ];
+
 
 let currentMemory = 0;
 
-const opening = document.getElementById("opening");
-const playButton = document.getElementById("playButton");
 
-const timeline = document.getElementById("timeline");
+const opening =
+    document.getElementById("opening");
 
-const memory = document.getElementById("memory");
-const memoryImage = document.getElementById("memoryImage");
+const playButton =
+    document.getElementById("playButton");
 
-const memoryPoint = document.getElementById("memoryPoint");
-const memoryConnector = document.getElementById("memoryConnector");
+const timeline =
+    document.getElementById("timeline");
 
-const nextButton = document.getElementById("nextButton");
-const previousButton = document.getElementById("previousButton");
+const memory =
+    document.getElementById("memory");
 
+const memoryImage =
+    document.getElementById("memoryImage");
+
+const memoryDate =
+    document.getElementById("memoryDate");
+
+const previousButton =
+    document.getElementById("previousButton");
+
+const nextButton =
+    document.getElementById("nextButton");
+
+
+/* =================================
+   SHOW MEMORY
+================================= */
 
 function showMemory(index) {
 
-    const item = memories[index];
-
     currentMemory = index;
 
-    memoryImage.src = "Images/" + item.file;
+    memoryImage.src =
+        "Images/" + memories[index];
 
-    memoryImage.onerror = function () {
-        console.log(
-            "Could not load:",
-            "Images/" + item.file
-        );
-    };
+    memoryDate.textContent =
+        "Memory " + (index + 1);
 
-    const isAbove = index % 2 === 0;
-
-    if (isAbove) {
-
-        memory.classList.remove("below");
-        memory.classList.add("above");
-
-        memoryConnector.style.top =
-            "calc(50% - 150px)";
-
-        memoryPoint.style.top =
-            "calc(50% - 150px)";
-
-    } else {
-
-        memory.classList.remove("above");
-        memory.classList.add("below");
-
-        memoryConnector.style.top =
-            "calc(50% + 150px)";
-
-        memoryPoint.style.top =
-            "calc(50% + 150px)";
-    }
-
-    memory.classList.add("show");
-
-    memoryPoint.classList.add("activate");
 }
 
 
-playButton.addEventListener("click", () => {
+/* =================================
+   PLAY
+================================= */
 
-    opening.classList.add("hidden");
+playButton.addEventListener(
+    "click",
+    () => {
 
-    setTimeout(() => {
-
-        timeline.classList.add("active");
-
-        showMemory(0);
-
-    }, 700);
-
-});
-
-
-nextButton.addEventListener("click", () => {
-
-    if (
-        currentMemory <
-        memories.length - 1
-    ) {
-
-        memory.classList.remove("show");
+        opening.classList.add("hidden");
 
         setTimeout(() => {
 
-            showMemory(
-                currentMemory + 1
-            );
+            timeline.classList.add("active");
+
+            showMemory(0);
 
         }, 500);
+
     }
+);
 
-});
 
+/* =================================
+   NEXT
+================================= */
 
-previousButton.addEventListener("click", () => {
+nextButton.addEventListener(
+    "click",
+    () => {
 
-    if (currentMemory > 0) {
+        if (
+            currentMemory <
+            memories.length - 1
+        ) {
 
-        memory.classList.remove("show");
+            currentMemory++;
 
-        setTimeout(() => {
+            showMemory(currentMemory);
 
-            showMemory(
-                currentMemory - 1
-            );
+        }
 
-        }, 500);
     }
+);
 
-});
+
+/* =================================
+   PREVIOUS
+================================= */
+
+previousButton.addEventListener(
+    "click",
+    () => {
+
+        if (currentMemory > 0) {
+
+            currentMemory--;
+
+            showMemory(currentMemory);
+
+        }
+
+    }
+);
