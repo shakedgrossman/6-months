@@ -55,6 +55,9 @@ const playButton =
 const timeline =
     document.getElementById("timeline");
 
+const timelineLine =
+    document.getElementById("timelineLine");
+
 const memory =
     document.getElementById("memory");
 
@@ -70,17 +73,23 @@ const memoryTitle =
 const memoryDescription =
     document.getElementById("memoryDescription");
 
-const memoryPoint =
-    document.getElementById("memoryPoint");
-
 const memoryBranch =
     document.getElementById("memoryBranch");
+
+const memoryPoint =
+    document.getElementById("memoryPoint");
 
 const nextButton =
     document.getElementById("nextButton");
 
+const previousButton =
+    document.getElementById("previousButton");
+
 const ending =
     document.getElementById("ending");
+
+const replayButton =
+    document.getElementById("replayButton");
 
 
 /* =================================
@@ -110,7 +119,7 @@ playButton.addEventListener(
                 showMemory(0);
 
             },
-            500
+            600
         );
 
     }
@@ -130,7 +139,7 @@ function showMemory(index) {
         index;
 
 
-    /* Reset memory */
+    /* Reset */
 
     memory.classList.remove("show");
 
@@ -138,21 +147,17 @@ function showMemory(index) {
 
     memory.classList.remove("below");
 
-
-    /* Reset point animation */
-
     memoryPoint.classList.remove("activate");
 
 
     /*
-     * Force the browser to recognize
-     * the animation as a new animation.
+     * Reset animation.
      */
 
     void memoryPoint.offsetWidth;
 
 
-    /* Update content */
+    /* Content */
 
     memoryImage.src =
         item.image;
@@ -171,7 +176,7 @@ function showMemory(index) {
 
 
     /* =================================
-       ABOVE / BELOW
+       MEMORY POSITION
     ================================= */
 
     const isAbove =
@@ -188,10 +193,10 @@ function showMemory(index) {
             "50%";
 
         memoryBranch.style.height =
-            "150px";
+            "145px";
 
         memoryPoint.style.top =
-            "calc(50% - 150px)";
+            "calc(50% - 145px)";
 
         memory.classList.add("above");
 
@@ -205,10 +210,10 @@ function showMemory(index) {
             "50%";
 
         memoryBranch.style.height =
-            "150px";
+            "145px";
 
         memoryPoint.style.top =
-            "calc(50% + 150px)";
+            "calc(50% + 145px)";
 
         memory.classList.add("below");
 
@@ -216,7 +221,7 @@ function showMemory(index) {
 
 
     /* =================================
-       POINT FIRST
+       POINT
     ================================= */
 
     setTimeout(
@@ -227,12 +232,12 @@ function showMemory(index) {
             );
 
         },
-        100
+        120
     );
 
 
     /* =================================
-       THEN PHOTO
+       PHOTO
     ================================= */
 
     setTimeout(
@@ -241,8 +246,37 @@ function showMemory(index) {
             memory.classList.add("show");
 
         },
-        350
+        380
     );
+
+
+    /* =================================
+       TIMELINE LENGTH
+    ================================= */
+
+    /*
+     * Keep the timeline centered around
+     * the current memory instead of
+     * crossing the whole screen.
+     */
+
+    const left =
+        Math.max(
+            9,
+            50 - (index * 2)
+        );
+
+    const right =
+        Math.max(
+            9,
+            50 - (index * 2)
+        );
+
+    timelineLine.style.left =
+        left + "%";
+
+    timelineLine.style.width =
+        (100 - left - right) + "%";
 
 }
 
@@ -263,9 +297,7 @@ nextButton.addEventListener(
         isChanging = true;
 
 
-        /* =================================
-           LAST MEMORY
-        ================================= */
+        /* Last memory */
 
         if (
             currentMemory >=
@@ -284,6 +316,10 @@ nextButton.addEventListener(
             setTimeout(
                 () => {
 
+                    timeline.classList.remove(
+                        "active"
+                    );
+
                     ending.classList.add(
                         "active"
                     );
@@ -300,9 +336,7 @@ nextButton.addEventListener(
         }
 
 
-        /* =================================
-           REMOVE CURRENT MEMORY
-        ================================= */
+        /* Remove current */
 
         memory.classList.remove(
             "show"
@@ -313,9 +347,7 @@ nextButton.addEventListener(
         );
 
 
-        /* =================================
-           LOAD NEXT MEMORY
-        ================================= */
+        /* Next */
 
         setTimeout(
             () => {
@@ -336,6 +368,94 @@ nextButton.addEventListener(
 
             },
             600
+        );
+
+    }
+);
+
+
+/* =================================
+   PREVIOUS
+================================= */
+
+previousButton.addEventListener(
+    "click",
+    () => {
+
+        if (isChanging) {
+            return;
+        }
+
+
+        if (currentMemory === 0) {
+            return;
+        }
+
+
+        isChanging = true;
+
+
+        memory.classList.remove(
+            "show"
+        );
+
+        memoryPoint.classList.remove(
+            "activate"
+        );
+
+
+        setTimeout(
+            () => {
+
+                showMemory(
+                    currentMemory - 1
+                );
+
+
+                setTimeout(
+                    () => {
+
+                        isChanging = false;
+
+                    },
+                    1000
+                );
+
+            },
+            600
+        );
+
+    }
+);
+
+
+/* =================================
+   REPLAY
+================================= */
+
+replayButton.addEventListener(
+    "click",
+    () => {
+
+        ending.classList.remove(
+            "active"
+        );
+
+
+        currentMemory = 0;
+
+
+        setTimeout(
+            () => {
+
+                timeline.classList.add(
+                    "active"
+                );
+
+                showMemory(0);
+
+            },
+            700
         );
 
     }
