@@ -20,9 +20,9 @@
 <body>
 
 
-    <!-- =========================
-         OPENING
-    ========================== -->
+    <!-- =================================
+         OPENING SCREEN
+    ================================== -->
 
     <section
         id="opening"
@@ -38,7 +38,9 @@
                 class="play-button"
                 aria-label="Start"
             >
+
                 <span>▶</span>
+
             </button>
 
         </div>
@@ -47,33 +49,29 @@
 
 
 
-    <!-- =========================
+    <!-- =================================
          TIMELINE
-    ========================== -->
+    ================================== -->
 
     <main
         id="timeline"
         class="timeline-screen"
     >
 
+        <!-- Permanent vertical timeline -->
 
-        <!-- Horizontal timeline -->
+        <div class="timeline-axis"></div>
+
+
+        <!-- Current horizontal connector -->
 
         <div
-            id="timelineLine"
-            class="timeline-line"
+            id="memoryConnector"
+            class="memory-connector"
         ></div>
 
 
-        <!-- Vertical branch -->
-
-        <div
-            id="memoryBranch"
-            class="memory-branch"
-        ></div>
-
-
-        <!-- Point at the outer end -->
+        <!-- Current memory point -->
 
         <div
             id="memoryPoint"
@@ -81,7 +79,7 @@
         ></div>
 
 
-        <!-- Current memory -->
+        <!-- Memory -->
 
         <div
             id="memory"
@@ -118,7 +116,7 @@
 
 
 
-        <!-- Previous -->
+        <!-- Previous — UP -->
 
         <button
             id="previousButton"
@@ -132,7 +130,7 @@
 
 
 
-        <!-- Next -->
+        <!-- Next — DOWN -->
 
         <button
             id="nextButton"
@@ -144,14 +142,13 @@
 
         </button>
 
-
     </main>
 
 
 
-    <!-- =========================
+    <!-- =================================
          ENDING
-    ========================== -->
+    ================================== -->
 
     <section
         id="ending"
@@ -168,9 +165,10 @@
             <button
                 id="replayButton"
                 class="replay-button"
+                aria-label="Replay"
             >
 
-                <span class="replay-icon">↻</span>
+                <span>↻</span>
 
             </button>
 
