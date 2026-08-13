@@ -1,5 +1,5 @@
 /* =================================
-   MEMORY DATA
+   MEMORIES
 ================================= */
 
 const memories = [
@@ -55,29 +55,26 @@ const playButton =
 const timeline =
     document.getElementById("timeline");
 
-const timelineLine =
-    document.getElementById("timelineLine");
+const connector =
+    document.getElementById("memoryConnector");
+
+const point =
+    document.getElementById("memoryPoint");
 
 const memory =
     document.getElementById("memory");
 
-const memoryImage =
+const image =
     document.getElementById("memoryImage");
 
-const memoryDate =
+const date =
     document.getElementById("memoryDate");
 
-const memoryTitle =
+const title =
     document.getElementById("memoryTitle");
 
-const memoryDescription =
+const description =
     document.getElementById("memoryDescription");
-
-const memoryBranch =
-    document.getElementById("memoryBranch");
-
-const memoryPoint =
-    document.getElementById("memoryPoint");
 
 const nextButton =
     document.getElementById("nextButton");
@@ -98,23 +95,28 @@ const replayButton =
 
 let currentMemory = 0;
 
-let isChanging = false;
+let changing = false;
 
 
 /* =================================
-   PLAY
+   START
 ================================= */
 
 playButton.addEventListener(
     "click",
     () => {
 
-        opening.classList.add("hidden");
+        opening.classList.add(
+            "hidden"
+        );
+
 
         setTimeout(
             () => {
 
-                timeline.classList.add("active");
+                timeline.classList.add(
+                    "active"
+                );
 
                 showMemory(0);
 
@@ -135,99 +137,98 @@ function showMemory(index) {
     const item =
         memories[index];
 
+
     currentMemory =
         index;
 
 
     /* Reset */
 
-    memory.classList.remove("show");
+    memory.classList.remove(
+        "show"
+    );
 
-    memory.classList.remove("above");
+    memory.classList.remove(
+        "above"
+    );
 
-    memory.classList.remove("below");
+    memory.classList.remove(
+        "below"
+    );
 
-    memoryPoint.classList.remove("activate");
-
-
-    /*
-     * Reset animation.
-     */
-
-    void memoryPoint.offsetWidth;
+    point.classList.remove(
+        "activate"
+    );
 
 
-    /* Content */
+    void point.offsetWidth;
 
-    memoryImage.src =
+
+    /* =================================
+       CONTENT
+    ================================= */
+
+    image.src =
         item.image;
 
-    memoryImage.alt =
+    image.alt =
         item.title;
 
-    memoryDate.textContent =
+    date.textContent =
         item.date;
 
-    memoryTitle.textContent =
+    title.textContent =
         item.title;
 
-    memoryDescription.textContent =
+    description.textContent =
         item.description;
 
 
     /* =================================
-       MEMORY POSITION
+       ALTERNATE POSITION
     ================================= */
 
-    const isAbove =
+    const above =
         index % 2 === 0;
 
 
-    if (isAbove) {
+    if (above) {
 
-        /*
-         * Branch goes upward.
-         */
-
-        memoryBranch.style.top =
-            "50%";
-
-        memoryBranch.style.height =
-            "145px";
-
-        memoryPoint.style.top =
+        connector.style.top =
             "calc(50% - 145px)";
 
-        memory.classList.add("above");
+        point.style.top =
+            "calc(50% - 145px)";
+
+
+        memory.classList.add(
+            "above"
+        );
 
     } else {
 
-        /*
-         * Branch goes downward.
-         */
-
-        memoryBranch.style.top =
-            "50%";
-
-        memoryBranch.style.height =
-            "145px";
-
-        memoryPoint.style.top =
+        connector.style.top =
             "calc(50% + 145px)";
 
-        memory.classList.add("below");
+        point.style.top =
+            "calc(50% + 145px)";
+
+
+        memory.classList.add(
+            "below"
+        );
 
     }
 
 
     /* =================================
-       POINT
+       POINT ANIMATION
     ================================= */
 
     setTimeout(
         () => {
 
-            memoryPoint.classList.add(
+            point.classList.add(
                 "activate"
             );
 
@@ -237,78 +238,53 @@ function showMemory(index) {
 
 
     /* =================================
-       PHOTO
+       MEMORY ENTERS
     ================================= */
 
     setTimeout(
         () => {
 
-            memory.classList.add("show");
+            memory.classList.add(
+                "show"
+            );
 
         },
-        380
+        350
     );
-
-
-    /* =================================
-       TIMELINE LENGTH
-    ================================= */
-
-    /*
-     * Keep the timeline centered around
-     * the current memory instead of
-     * crossing the whole screen.
-     */
-
-    const left =
-        Math.max(
-            9,
-            50 - (index * 2)
-        );
-
-    const right =
-        Math.max(
-            9,
-            50 - (index * 2)
-        );
-
-    timelineLine.style.left =
-        left + "%";
-
-    timelineLine.style.width =
-        (100 - left - right) + "%";
 
 }
 
 
 /* =================================
-   NEXT
+   NEXT — DOWN
 ================================= */
 
 nextButton.addEventListener(
     "click",
     () => {
 
-        if (isChanging) {
+        if (changing) {
             return;
         }
 
 
-        isChanging = true;
+        changing = true;
 
 
-        /* Last memory */
+        /* =================================
+           END OF TIMELINE
+        ================================= */
 
         if (
             currentMemory >=
             memories.length - 1
         ) {
 
-            memory.classList.remove(
-                "show"
+            memory.classList.add(
+                "exit"
             );
 
-            memoryPoint.classList.remove(
+            point.classList.remove(
                 "activate"
             );
 
@@ -324,10 +300,16 @@ nextButton.addEventListener(
                         "active"
                     );
 
-                    isChanging = false;
+
+                    memory.classList.remove(
+                        "exit"
+                    );
+
+
+                    changing = false;
 
                 },
-                700
+                850
             );
 
 
@@ -336,21 +318,30 @@ nextButton.addEventListener(
         }
 
 
-        /* Remove current */
+        /* =================================
+           CURRENT MEMORY LEAVES LEFT
+        ================================= */
 
-        memory.classList.remove(
-            "show"
+        memory.classList.add(
+            "exit"
         );
 
-        memoryPoint.classList.remove(
+        point.classList.remove(
             "activate"
         );
 
 
-        /* Next */
+        /* =================================
+           LOAD NEXT MEMORY
+        ================================= */
 
         setTimeout(
             () => {
+
+                memory.classList.remove(
+                    "exit"
+                );
+
 
                 showMemory(
                     currentMemory + 1
@@ -360,14 +351,14 @@ nextButton.addEventListener(
                 setTimeout(
                     () => {
 
-                        isChanging = false;
+                        changing = false;
 
                     },
                     1000
                 );
 
             },
-            600
+            650
         );
 
     }
@@ -375,14 +366,14 @@ nextButton.addEventListener(
 
 
 /* =================================
-   PREVIOUS
+   PREVIOUS — UP
 ================================= */
 
 previousButton.addEventListener(
     "click",
     () => {
 
-        if (isChanging) {
+        if (changing) {
             return;
         }
 
@@ -392,20 +383,29 @@ previousButton.addEventListener(
         }
 
 
-        isChanging = true;
+        changing = true;
 
 
-        memory.classList.remove(
-            "show"
+        /* Current memory leaves */
+
+        memory.classList.add(
+            "exit"
         );
 
-        memoryPoint.classList.remove(
+        point.classList.remove(
             "activate"
         );
 
 
+        /* Load previous */
+
         setTimeout(
             () => {
+
+                memory.classList.remove(
+                    "exit"
+                );
+
 
                 showMemory(
                     currentMemory - 1
@@ -415,14 +415,14 @@ previousButton.addEventListener(
                 setTimeout(
                     () => {
 
-                        isChanging = false;
+                        changing = false;
 
                     },
                     1000
                 );
 
             },
-            600
+            650
         );
 
     }
