@@ -21,10 +21,13 @@
 
 
     <!-- =========================
-         OPENING SCREEN
+         OPENING
     ========================== -->
 
-    <section id="opening" class="opening-screen">
+    <section
+        id="opening"
+        class="opening-screen"
+    >
 
         <div class="opening-content">
 
@@ -48,15 +51,21 @@
          TIMELINE
     ========================== -->
 
-    <main id="timeline" class="timeline-screen">
+    <main
+        id="timeline"
+        class="timeline-screen"
+    >
 
 
-        <!-- Main horizontal timeline -->
+        <!-- Horizontal timeline -->
 
-        <div class="timeline-line"></div>
+        <div
+            id="timelineLine"
+            class="timeline-line"
+        ></div>
 
 
-        <!-- Vertical connection -->
+        <!-- Vertical branch -->
 
         <div
             id="memoryBranch"
@@ -94,7 +103,9 @@
                 ></div>
 
 
-                <h2 id="memoryTitle"></h2>
+                <h2
+                    id="memoryTitle"
+                ></h2>
 
 
                 <p
@@ -106,17 +117,30 @@
         </div>
 
 
-        <!-- Next arrow -->
+
+        <!-- Previous -->
+
+        <button
+            id="previousButton"
+            class="navigation-button previous-button"
+            aria-label="Previous memory"
+        >
+
+            <span class="previous-arrow"></span>
+
+        </button>
+
+
+
+        <!-- Next -->
 
         <button
             id="nextButton"
-            class="next-button"
+            class="navigation-button next-button"
             aria-label="Next memory"
         >
 
-            <span class="arrow-line"></span>
-
-            <span class="arrow-head"></span>
+            <span class="next-arrow"></span>
 
         </button>
 
@@ -139,6 +163,16 @@
             <h2>6 months down.</h2>
 
             <p>A lot more to go.</p>
+
+
+            <button
+                id="replayButton"
+                class="replay-button"
+            >
+
+                <span class="replay-icon">↻</span>
+
+            </button>
 
         </div>
 
