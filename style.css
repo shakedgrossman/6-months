@@ -1,16 +1,16 @@
 /* =================================
-   PALETTE
+   COLOR PALETTE
 ================================= */
 
 :root {
 
-    --background: #0D0C0B;
+    --background: #101419;
 
-    --line: #3B3935;
+    --timeline: #384047;
 
-    --light: #D8CDBA;
+    --light: #D8CBB8;
 
-    --secondary: #8E877C;
+    --secondary: #918B83;
 
 }
 
@@ -57,7 +57,7 @@ body {
 
 
 /* =================================
-   OPENING
+   OPENING SCREEN
 ================================= */
 
 .opening-screen {
@@ -124,7 +124,7 @@ body {
 
 
 /* =================================
-   PLAY
+   PLAY BUTTON
 ================================= */
 
 .play-button {
@@ -133,11 +133,11 @@ body {
 
     height: 62px;
 
-    border-radius: 50%;
-
     border:
         1px solid
-        var(--line);
+        var(--timeline);
+
+    border-radius: 50%;
 
     background: transparent;
 
@@ -154,9 +154,8 @@ body {
     margin: auto;
 
     transition:
-        background 0.35s ease,
-        color 0.35s ease,
-        transform 0.35s ease;
+        transform 0.3s ease,
+        background 0.3s ease;
 
 }
 
@@ -220,42 +219,46 @@ body {
 
 
 /* =================================
-   HORIZONTAL TIMELINE
+   PERMANENT VERTICAL TIMELINE
 ================================= */
 
-.timeline-line {
+.timeline-axis {
 
     position: absolute;
 
-    top: 50%;
+    left: 10%;
 
-    left: 9%;
+    top: 7%;
 
-    width: 82%;
+    bottom: 7%;
 
-    height: 1px;
+    width: 1px;
 
-    background: var(--line);
+    background: var(--timeline);
 
 }
 
 
 /* =================================
-   VERTICAL BRANCH
+   HORIZONTAL MEMORY CONNECTOR
 ================================= */
 
-.memory-branch {
+.memory-connector {
 
     position: absolute;
 
-    left: 50%;
+    left: 10%;
 
-    width: 1px;
+    width: 30%;
 
-    background: var(--line);
+    height: 1px;
 
-    transform:
-        translateX(-50%);
+    background: var(--timeline);
+
+    z-index: 5;
+
+    transition:
+        top 0.6s ease;
 
 }
 
@@ -268,7 +271,7 @@ body {
 
     position: absolute;
 
-    left: 50%;
+    left: 40%;
 
     width: 9px;
 
@@ -276,7 +279,7 @@ body {
 
     border-radius: 50%;
 
-    background: var(--line);
+    background: var(--timeline);
 
     transform:
         translate(-50%, -50%)
@@ -311,7 +314,7 @@ body {
 
         transform:
             translate(-50%, -50%)
-            scale(1.75);
+            scale(1.7);
 
     }
 
@@ -319,7 +322,7 @@ body {
 
         transform:
             translate(-50%, -50%)
-            scale(1.25);
+            scale(1.2);
 
     }
 
@@ -342,10 +345,10 @@ body {
 
     position: absolute;
 
-    left: 50%;
+    left: 42%;
 
     width:
-        min(500px, 58vw);
+        min(470px, 48vw);
 
     display: flex;
 
@@ -360,23 +363,23 @@ body {
     pointer-events: none;
 
     transition:
-        transform 1.05s
+        transform 0.9s
         cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.75s ease;
+        opacity 0.65s ease;
 
 }
 
 
 /* =================================
-   IMAGE
+   MEMORY IMAGE
 ================================= */
 
 .memory img {
 
     width:
-        min(440px, 53vw);
+        min(420px, 44vw);
 
-    height: 410px;
+    height: 380px;
 
     object-fit: cover;
 
@@ -386,14 +389,14 @@ body {
 
 
 /* =================================
-   TEXT
+   MEMORY TEXT
 ================================= */
 
 .memory-info {
 
-    margin-top: 19px;
+    margin-top: 18px;
 
-    max-width: 440px;
+    max-width: 420px;
 
 }
 
@@ -448,16 +451,15 @@ body {
 
 
 /* =================================
-   MEMORY ABOVE
+   MEMORY ABOVE TIMELINE
 ================================= */
 
 .memory.above {
 
     top:
-        calc(50% - 345px);
+        calc(50% - 400px);
 
     transform:
-        translate(-50%, 0)
         translateX(120vw);
 
 }
@@ -466,23 +468,21 @@ body {
 .memory.above.show {
 
     transform:
-        translate(-50%, 0)
         translateX(0);
 
 }
 
 
 /* =================================
-   MEMORY BELOW
+   MEMORY BELOW TIMELINE
 ================================= */
 
 .memory.below {
 
     top:
-        calc(50% + 165px);
+        calc(50% + 65px);
 
     transform:
-        translate(-50%, 0)
         translateX(120vw);
 
 }
@@ -491,34 +491,46 @@ body {
 .memory.below.show {
 
     transform:
-        translate(-50%, 0)
         translateX(0);
 
 }
 
 
 /* =================================
-   NAVIGATION ARROWS
+   MEMORY EXIT
+================================= */
+
+.memory.exit {
+
+    transform:
+        translateX(-120vw) !important;
+
+    opacity: 0;
+
+}
+
+
+/* =================================
+   NAVIGATION
 ================================= */
 
 .navigation-button {
 
     position: absolute;
 
-    top: 50%;
+    left: 50%;
 
-    width: 42px;
+    width: 46px;
 
-    height: 42px;
-
-    transform:
-        translateY(-50%);
-
-    background: transparent;
+    height: 46px;
 
     border: none;
 
+    background: transparent;
+
     cursor: pointer;
+
+    z-index: 50;
 
     display: flex;
 
@@ -526,77 +538,37 @@ body {
 
     justify-content: center;
 
-    z-index: 50;
-
     transition:
-        transform 0.3s ease,
-        opacity 0.3s ease;
+        transform 0.3s ease;
 
 }
 
 
 /* =================================
-   NEXT
-================================= */
-
-.next-button {
-
-    right: 2.5%;
-
-}
-
-
-.next-arrow {
-
-    width: 13px;
-
-    height: 13px;
-
-    border-top:
-        1px solid
-        var(--light);
-
-    border-right:
-        1px solid
-        var(--light);
-
-    transform:
-        rotate(45deg);
-
-}
-
-
-.next-button:hover {
-
-    transform:
-        translateY(-50%)
-        translateX(4px);
-
-}
-
-
-/* =================================
-   PREVIOUS
+   PREVIOUS — UP
 ================================= */
 
 .previous-button {
 
-    left: 2.5%;
+    top: 3%;
+
+    transform:
+        translateX(-50%);
 
 }
 
 
 .previous-arrow {
 
-    width: 13px;
+    width: 14px;
 
-    height: 13px;
+    height: 14px;
 
-    border-bottom:
+    border-left:
         1px solid
         var(--light);
 
-    border-left:
+    border-top:
         1px solid
         var(--light);
 
@@ -609,8 +581,51 @@ body {
 .previous-button:hover {
 
     transform:
-        translateY(-50%)
-        translateX(-4px);
+        translateX(-50%)
+        translateY(-5px);
+
+}
+
+
+/* =================================
+   NEXT — DOWN
+================================= */
+
+.next-button {
+
+    bottom: 3%;
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+.next-arrow {
+
+    width: 14px;
+
+    height: 14px;
+
+    border-right:
+        1px solid
+        var(--light);
+
+    border-bottom:
+        1px solid
+        var(--light);
+
+    transform:
+        rotate(45deg);
+
+}
+
+
+.next-button:hover {
+
+    transform:
+        translateX(-50%)
+        translateY(5px);
 
 }
 
@@ -644,8 +659,8 @@ body {
     visibility: hidden;
 
     transition:
-        opacity 1.2s ease,
-        visibility 1.2s ease;
+        opacity 1s ease,
+        visibility 1s ease;
 
     z-index: 200;
 
@@ -690,7 +705,7 @@ body {
 
     color: var(--secondary);
 
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 
 }
 
@@ -701,13 +716,13 @@ body {
 
 .replay-button {
 
-    width: 45px;
+    width: 46px;
 
-    height: 45px;
+    height: 46px;
 
     border:
         1px solid
-        var(--line);
+        var(--timeline);
 
     border-radius: 50%;
 
@@ -717,25 +732,11 @@ body {
 
     cursor: pointer;
 
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    margin: auto;
+    font-size: 22px;
 
     transition:
-        background 0.3s ease,
-        color 0.3s ease,
-        transform 0.3s ease;
-
-}
-
-
-.replay-icon {
-
-    font-size: 20px;
+        transform 0.3s ease,
+        background 0.3s ease;
 
 }
 
@@ -746,7 +747,8 @@ body {
 
     color: var(--background);
 
-    transform: rotate(-25deg);
+    transform:
+        rotate(-25deg);
 
 }
 
@@ -757,28 +759,43 @@ body {
 
 @media (max-width: 700px) {
 
+    .timeline-axis {
 
-    .timeline-line {
+        left: 7%;
 
-        left: 12%;
+    }
 
-        width: 76%;
+
+    .memory-connector {
+
+        left: 7%;
+
+        width: 27%;
+
+    }
+
+
+    .memory-point {
+
+        left: 34%;
 
     }
 
 
     .memory {
 
-        width: 72vw;
+        left: 36%;
+
+        width: 55vw;
 
     }
 
 
     .memory img {
 
-        width: 72vw;
+        width: 55vw;
 
-        height: 330px;
+        height: 320px;
 
     }
 
@@ -786,7 +803,7 @@ body {
     .memory.above {
 
         top:
-            calc(50% - 315px);
+            calc(50% - 335px);
 
     }
 
@@ -794,21 +811,21 @@ body {
     .memory.below {
 
         top:
-            calc(50% + 155px);
-
-    }
-
-
-    .next-button {
-
-        right: 1%;
+            calc(50% + 60px);
 
     }
 
 
     .previous-button {
 
-        left: 1%;
+        top: 2%;
+
+    }
+
+
+    .next-button {
+
+        bottom: 2%;
 
     }
 
