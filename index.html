@@ -12,7 +12,10 @@
 
     <title>6 Months of Us</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 </head>
 
@@ -21,7 +24,7 @@
 
 
     <!-- =================================
-         OPENING SCREEN
+         OPENING
     ================================== -->
 
     <section
@@ -58,12 +61,14 @@
         class="timeline-screen"
     >
 
-        <!-- Permanent vertical timeline -->
+        <!-- Vertical timeline line -->
 
-        <div class="timeline-axis"></div>
+        <div
+            class="timeline-axis"
+        ></div>
 
 
-        <!-- Current horizontal connector -->
+        <!-- Horizontal connector -->
 
         <div
             id="memoryConnector"
@@ -71,7 +76,7 @@
         ></div>
 
 
-        <!-- Current memory point -->
+        <!-- Memory point -->
 
         <div
             id="memoryPoint"
@@ -86,14 +91,24 @@
             class="memory"
         >
 
+            <!--
+                IMPORTANT:
+                The JavaScript replaces this
+                with a video automatically
+                when necessary.
+            -->
+
             <img
                 id="memoryImage"
+                class="memory-media"
                 src=""
                 alt=""
             >
 
 
-            <div class="memory-info">
+            <div
+                class="memory-info"
+            >
 
                 <div
                     id="memoryDate"
@@ -116,7 +131,10 @@
 
 
 
-        <!-- Previous — UP -->
+        <!-- =================================
+             PREVIOUS
+             UP
+        ================================== -->
 
         <button
             id="previousButton"
@@ -124,13 +142,18 @@
             aria-label="Previous memory"
         >
 
-            <span class="previous-arrow"></span>
+            <span
+                class="previous-arrow"
+            ></span>
 
         </button>
 
 
 
-        <!-- Next — DOWN -->
+        <!-- =================================
+             NEXT
+             DOWN
+        ================================== -->
 
         <button
             id="nextButton"
@@ -138,7 +161,9 @@
             aria-label="Next memory"
         >
 
-            <span class="next-arrow"></span>
+            <span
+                class="next-arrow"
+            ></span>
 
         </button>
 
@@ -155,7 +180,9 @@
         class="ending-screen"
     >
 
-        <div class="ending-content">
+        <div
+            class="ending-content"
+        >
 
             <h2>6 months down.</h2>
 
@@ -168,7 +195,7 @@
                 aria-label="Replay"
             >
 
-                <span>↻</span>
+                ↻
 
             </button>
 
