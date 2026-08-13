@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -16,193 +15,64 @@
         rel="stylesheet"
         href="style.css"
     >
-
 </head>
 
 
 <body>
 
+    <!-- Opening -->
 
-    <!-- =================================
-         OPENING
-    ================================== -->
+    <section id="opening">
 
-    <section
-        id="opening"
-        class="opening-screen"
-    >
+        <h1>6 months of us</h1>
 
-        <div class="opening-content">
-
-            <h1>6 months of us</h1>
-
-            <button
-                id="playButton"
-                class="play-button"
-                aria-label="Start"
-            >
-
-                <span>▶</span>
-
-            </button>
-
-        </div>
+        <button
+            id="playButton"
+            aria-label="Start"
+        >
+            ▶
+        </button>
 
     </section>
 
 
+    <!-- Timeline -->
 
-    <!-- =================================
-         TIMELINE
-    ================================== -->
+    <main id="timeline">
 
-    <main
-        id="timeline"
-        class="timeline-screen"
-    >
-
-        <!-- Vertical timeline line -->
-
-        <div
-            class="timeline-axis"
-        ></div>
-
-
-        <!-- Horizontal connector -->
-
-        <div
-            id="memoryConnector"
-            class="memory-connector"
-        ></div>
-
-
-        <!-- Memory point -->
-
-        <div
-            id="memoryPoint"
-            class="memory-point"
-        ></div>
-
-
-        <!-- Memory -->
-
-        <div
-            id="memory"
-            class="memory"
+        <button
+            id="previousButton"
+            class="nav-button previous"
+            aria-label="Previous"
         >
+            ↑
+        </button>
 
-            <!--
-                IMPORTANT:
-                The JavaScript replaces this
-                with a video automatically
-                when necessary.
-            -->
+
+        <div id="memory">
 
             <img
                 id="memoryImage"
-                class="memory-media"
-                src=""
-                alt=""
+                src="Images/Memory 1.jpg"
+                alt="Memory"
             >
 
-
-            <div
-                class="memory-info"
-            >
-
-                <div
-                    id="memoryDate"
-                    class="memory-date"
-                ></div>
-
-
-                <h2
-                    id="memoryTitle"
-                ></h2>
-
-
-                <p
-                    id="memoryDescription"
-                ></p>
-
+            <div id="memoryDate">
+                Memory 1
             </div>
 
         </div>
 
 
-
-        <!-- =================================
-             PREVIOUS
-             UP
-        ================================== -->
-
-        <button
-            id="previousButton"
-            class="navigation-button previous-button"
-            aria-label="Previous memory"
-        >
-
-            <span
-                class="previous-arrow"
-            ></span>
-
-        </button>
-
-
-
-        <!-- =================================
-             NEXT
-             DOWN
-        ================================== -->
-
         <button
             id="nextButton"
-            class="navigation-button next-button"
-            aria-label="Next memory"
+            class="nav-button next"
+            aria-label="Next"
         >
-
-            <span
-                class="next-arrow"
-            ></span>
-
+            ↓
         </button>
 
     </main>
-
-
-
-    <!-- =================================
-         ENDING
-    ================================== -->
-
-    <section
-        id="ending"
-        class="ending-screen"
-    >
-
-        <div
-            class="ending-content"
-        >
-
-            <h2>6 months down.</h2>
-
-            <p>A lot more to go.</p>
-
-
-            <button
-                id="replayButton"
-                class="replay-button"
-                aria-label="Replay"
-            >
-
-                ↻
-
-            </button>
-
-        </div>
-
-    </section>
-
 
 
     <script src="script.js"></script>
