@@ -45,20 +45,38 @@
             class="nav-button previous"
             aria-label="Previous"
         >
-            ↑
+            ‹
         </button>
 
 
         <div id="memory">
 
-            <img
-                id="memoryImage"
-                src="Images/Memory 1.jpg"
-                alt="Memory"
-            >
+            <div id="mediaContainer">
 
-            <div id="memoryDate">
-                Memory 1
+                <img
+                    id="memoryImage"
+                    src="Images/Memory 1.jpg"
+                    alt="Memory"
+                >
+
+                <video
+                    id="memoryVideo"
+                    controls
+                    playsinline
+                    preload="metadata"
+                ></video>
+
+            </div>
+
+
+            <div id="memoryInfo">
+
+                <h2 id="memoryTitle"></h2>
+
+                <div id="memoryDate"></div>
+
+                <p id="memoryDescription"></p>
+
             </div>
 
         </div>
@@ -69,7 +87,7 @@
             class="nav-button next"
             aria-label="Next"
         >
-            ↓
+            ›
         </button>
 
     </main>
