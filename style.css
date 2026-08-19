@@ -87,6 +87,10 @@ body {
 }
 
 
+/* =================================
+   PLAY BUTTON
+================================= */
+
 #playButton {
     width: 58px;
     height: 58px;
@@ -111,6 +115,7 @@ body {
 
 #playButton:hover {
     background: var(--beige);
+
     color: var(--background);
 
     transform: scale(1.05);
@@ -147,6 +152,7 @@ body {
 
 #timeline.active {
     opacity: 1;
+
     pointer-events: auto;
 }
 
@@ -156,9 +162,11 @@ body {
 ================================= */
 
 #memory {
-    width: min(75vw, 650px);
+
+    width: min(70vw, 650px);
 
     display: flex;
+
     flex-direction: column;
 
     align-items: center;
@@ -168,17 +176,38 @@ body {
     opacity: 1;
 
     transition:
-        transform 0.7s ease,
-        opacity 0.7s ease;
+        transform 0.5s ease,
+        opacity 0.5s ease;
 }
 
 
-#memoryImage {
+/* =================================
+   MEDIA
+================================= */
+
+#mediaContainer {
+
+    width: 100%;
+
+    height: min(55vh, 430px);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+#memoryImage,
+#memoryVideo {
+
     display: block;
 
-    width: min(70vw, 600px);
+    width: auto;
 
-    height: min(65vh, 500px);
+    max-width: 100%;
+
+    height: min(52vh, 410px);
 
     object-fit: contain;
 
@@ -186,21 +215,73 @@ body {
 }
 
 
+#memoryVideo {
+    display: none;
+}
+
+
+/* =================================
+   MEMORY INFO
+================================= */
+
+#memoryInfo {
+
+    margin-top: 18px;
+
+    max-width: 600px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+#memoryTitle {
+
+    font-size: clamp(1.25rem, 2.5vw, 1.7rem);
+
+    font-weight: 400;
+
+    letter-spacing: 0.04em;
+
+    margin-bottom: 7px;
+}
+
+
 #memoryDate {
-    margin-top: 22px;
 
     font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-    font-size: 0.7rem;
+    font-size: 0.68rem;
 
     letter-spacing: 0.18em;
 
-    text-transform: uppercase;
-
     color: var(--muted);
+
+    margin-bottom: 11px;
+}
+
+
+#memoryDescription {
+
+    max-width: 500px;
+
+    font-size: 0.95rem;
+
+    line-height: 1.6;
+
+    color: var(--beige);
+
+    direction: rtl;
+
+    text-align: center;
+
+    min-height: 0;
 }
 
 
@@ -209,12 +290,13 @@ body {
 ================================= */
 
 .nav-button {
+
     position: absolute;
 
-    left: 50%;
+    top: 50%;
 
-    width: 50px;
-    height: 50px;
+    width: 65px;
+    height: 90px;
 
     border: none;
 
@@ -222,9 +304,11 @@ body {
 
     color: var(--beige);
 
-    font-size: 27px;
+    font-size: 48px;
 
     font-family: Georgia, serif;
+
+    font-weight: 300;
 
     cursor: pointer;
 
@@ -235,6 +319,8 @@ body {
     align-items: center;
     justify-content: center;
 
+    opacity: 0.75;
+
     transition:
         opacity 0.3s ease,
         transform 0.3s ease;
@@ -242,32 +328,40 @@ body {
 
 
 .previous {
-    top: 3%;
+
+    left: 7%;
 
     transform:
-        translateX(-50%);
+        translateY(-50%);
 }
 
 
 .next {
-    bottom: 3%;
+
+    right: 7%;
 
     transform:
-        translateX(-50%);
+        translateY(-50%);
 }
 
 
 .previous:hover {
+
+    opacity: 1;
+
     transform:
-        translateX(-50%)
-        translateY(-5px);
+        translateY(-50%)
+        translateX(-5px);
 }
 
 
 .next:hover {
+
+    opacity: 1;
+
     transform:
-        translateX(-50%)
-        translateY(5px);
+        translateY(-50%)
+        translateX(5px);
 }
 
 
@@ -278,17 +372,70 @@ body {
 @media (max-width: 600px) {
 
     #memory {
-        width: 88vw;
+
+        width: 82vw;
     }
 
 
-    #memoryImage {
-        width: 86vw;
-        height: 62vh;
+    #mediaContainer {
+
+        height: 48vh;
+    }
+
+
+    #memoryImage,
+    #memoryVideo {
+
+        max-width: 82vw;
+
+        height: 45vh;
+    }
+
+
+    #memoryInfo {
+
+        margin-top: 12px;
+
+        max-width: 82vw;
+    }
+
+
+    #memoryTitle {
+
+        font-size: 1.2rem;
+    }
+
+
+    #memoryDescription {
+
+        font-size: 0.88rem;
+
+        line-height: 1.5;
+    }
+
+
+    .nav-button {
+
+        width: 45px;
+
+        font-size: 40px;
+    }
+
+
+    .previous {
+
+        left: 2%;
+    }
+
+
+    .next {
+
+        right: 2%;
     }
 
 
     #opening h1 {
+
         font-size: 2.4rem;
     }
 
