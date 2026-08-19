@@ -33,8 +33,8 @@ body {
     color: var(--beige);
 
     font-family:
+        "Cormorant Garamond",
         Georgia,
-        "Times New Roman",
         serif;
 
     overflow: hidden;
@@ -76,10 +76,15 @@ body {
 
 
 #opening h1 {
-    font-size:
-        clamp(2.5rem, 7vw, 5rem);
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
 
-    font-weight: 400;
+    font-size:
+        clamp(2.8rem, 7vw, 5rem);
+
+    font-weight: 300;
 
     letter-spacing: 0.04em;
 
@@ -158,10 +163,80 @@ body {
 
 
 /* =================================
+   SUBTLE TIMELINE LINE
+================================= */
+
+#timelineLine {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 5%;
+
+    width: 1px;
+
+    height: 90%;
+
+    background: rgba(56, 64, 71, 0.45);
+
+    transform: translateX(-50%);
+
+    pointer-events: none;
+}
+
+
+#timelineProgress {
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 1px;
+
+    height: 0%;
+
+    background: var(--beige);
+
+    transition:
+        height 0.8s ease;
+}
+
+
+#timelineDot {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 0%;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: var(--beige);
+
+    transform:
+        translate(-50%, -50%);
+
+    transition:
+        top 0.8s ease;
+}
+
+
+/* =================================
    MEMORY
 ================================= */
 
 #memory {
+
+    position: relative;
+
+    z-index: 2;
 
     width: min(70vw, 650px);
 
@@ -175,9 +250,11 @@ body {
 
     opacity: 1;
 
+    transform: translateX(0);
+
     transition:
-        transform 0.5s ease,
-        opacity 0.5s ease;
+        opacity 0.45s ease,
+        transform 0.45s ease;
 }
 
 
@@ -240,30 +317,36 @@ body {
 
 #memoryTitle {
 
-    font-size: clamp(1.25rem, 2.5vw, 1.7rem);
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(1.4rem, 2.7vw, 1.8rem);
 
     font-weight: 400;
 
     letter-spacing: 0.04em;
 
-    margin-bottom: 7px;
+    margin-bottom: 5px;
 }
 
 
 #memoryDate {
 
     font-family:
+        "Assistant",
         Arial,
-        Helvetica,
         sans-serif;
 
-    font-size: 0.68rem;
+    font-size: 0.72rem;
 
-    letter-spacing: 0.18em;
+    letter-spacing: 0.16em;
 
     color: var(--muted);
 
-    margin-bottom: 11px;
+    margin-bottom: 10px;
 }
 
 
@@ -271,7 +354,14 @@ body {
 
     max-width: 500px;
 
+    font-family:
+        "Assistant",
+        Arial,
+        sans-serif;
+
     font-size: 0.95rem;
+
+    font-weight: 300;
 
     line-height: 1.6;
 
@@ -282,6 +372,68 @@ body {
     text-align: center;
 
     min-height: 0;
+}
+
+
+/* =================================
+   MEMORY COUNTER
+================================= */
+
+#memoryProgress {
+
+    margin-top: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-family:
+        "Assistant",
+        Arial,
+        sans-serif;
+
+    font-size: 0.62rem;
+
+    letter-spacing: 0.12em;
+
+    color: var(--muted);
+
+    opacity: 0.8;
+}
+
+
+.progressLine {
+
+    width: 80px;
+
+    height: 1px;
+
+    background: var(--line);
+
+    position: relative;
+}
+
+
+.progressLine::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    height: 1px;
+
+    width: 0%;
+
+    background: var(--beige);
+
+    transition:
+        width 0.8s ease;
 }
 
 
@@ -306,7 +458,10 @@ body {
 
     font-size: 48px;
 
-    font-family: Georgia, serif;
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
 
     font-weight: 300;
 
@@ -366,6 +521,62 @@ body {
 
 
 /* =================================
+   RESTART
+================================= */
+
+#restartButton {
+
+    position: absolute;
+
+    bottom: 4%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    font-family:
+        "Assistant",
+        Arial,
+        sans-serif;
+
+    font-size: 0.72rem;
+
+    letter-spacing: 0.12em;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.4s ease,
+        color 0.3s ease;
+}
+
+
+#restartButton.visible {
+
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+
+#restartButton:hover {
+
+    color: var(--beige);
+}
+
+
+/* =================================
    MOBILE
 ================================= */
 
@@ -402,7 +613,7 @@ body {
 
     #memoryTitle {
 
-        font-size: 1.2rem;
+        font-size: 1.35rem;
     }
 
 
@@ -431,6 +642,32 @@ body {
     .next {
 
         right: 2%;
+    }
+
+
+    #timelineLine {
+
+        left: 50%;
+
+        height: 88%;
+    }
+
+
+    #memoryProgress {
+
+        margin-top: 15px;
+    }
+
+
+    .progressLine {
+
+        width: 55px;
+    }
+
+
+    #restartButton {
+
+        bottom: 2.5%;
     }
 
 
