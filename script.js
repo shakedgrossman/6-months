@@ -293,6 +293,10 @@ const memories = [
 let currentMemory = 0;
 
 
+/* =================================
+   ELEMENTS
+================================= */
+
 const opening =
     document.getElementById("opening");
 
@@ -326,9 +330,36 @@ const previousButton =
 const nextButton =
     document.getElementById("nextButton");
 
+const restartButton =
+    document.getElementById("restartButton");
+
+const timelineDot =
+    document.getElementById("timelineDot");
+
+const timelineProgress =
+    document.getElementById("timelineProgress");
+
+const currentNumber =
+    document.getElementById("currentNumber");
+
+const totalNumber =
+    document.getElementById("totalNumber");
+
+const progressLine =
+    document.querySelector(".progressLine::after");
+
 
 /* =================================
-   PRELOAD
+   TOTAL
+================================= */
+
+totalNumber.textContent =
+    String(memories.length)
+        .padStart(2, "0");
+
+
+/* =================================
+   PRELOAD IMAGE
 ================================= */
 
 function preloadImage(index) {
@@ -340,11 +371,11 @@ function preloadImage(index) {
         return;
     }
 
-    const memoryItem =
+    const item =
         memories[index];
 
     if (
-        memoryItem.file
+        item.file
             .toLowerCase()
             .endsWith(".mp4")
     ) {
@@ -355,7 +386,75 @@ function preloadImage(index) {
         new Image();
 
     image.src =
-        "Images/" + memoryItem.file;
+        "Images/" + item.file;
+}
+
+
+/* =================================
+   UPDATE TIMELINE
+================================= */
+
+function updateTimeline(index) {
+
+    const total =
+        memories.length - 1;
+
+    const progress =
+        total > 0
+            ? (index / total) * 100
+            : 0;
+
+
+    timelineDot.style.top =
+        progress + "%";
+
+
+    timelineProgress.style.height =
+        progress + "%";
+
+
+    currentNumber.textContent =
+        String(index + 1)
+            .padStart(2, "0");
+
+
+    /*
+     * Progress bar
+     */
+
+    const progressElement =
+        document.querySelector(".progressLine");
+
+    if (progressElement) {
+
+        progressElement.style.setProperty(
+            "--progress",
+            progress + "%"
+        );
+
+    }
+
+
+    /*
+     * Restart button
+     */
+
+    if (
+        index === memories.length - 1
+    ) {
+
+        restartButton.classList.add(
+            "visible"
+        );
+
+    } else {
+
+        restartButton.classList.remove(
+            "visible"
+        );
+
+    }
+
 }
 
 
@@ -363,26 +462,41 @@ function preloadImage(index) {
    SHOW MEMORY
 ================================= */
 
-function showMemory(index) {
+function showMemory(
+    index,
+    direction = 1
+) {
 
     currentMemory = index;
 
-    const current =
-        memories[index];
 
-
-    /* Fade */
+    /*
+     * Animate current memory out
+     */
 
     memory.style.opacity = "0";
 
+    memory.style.transform =
+        direction > 0
+            ? "translateX(-35px)"
+            : "translateX(35px)";
+
 
     setTimeout(() => {
+
+        const current =
+            memories[index];
+
 
         const isVideo =
             current.file
                 .toLowerCase()
                 .endsWith(".mp4");
 
+
+        /* =============================
+           MEDIA
+        ============================= */
 
         if (isVideo) {
 
@@ -401,7 +515,9 @@ function showMemory(index) {
 
             memoryVideo.pause();
 
-            memoryVideo.removeAttribute("src");
+            memoryVideo.removeAttribute(
+                "src"
+            );
 
             memoryVideo.load();
 
@@ -419,6 +535,10 @@ function showMemory(index) {
         }
 
 
+        /* =============================
+           TEXT
+        ============================= */
+
         memoryTitle.textContent =
             current.title;
 
@@ -430,10 +550,6 @@ function showMemory(index) {
         memoryDescription.textContent =
             current.description;
 
-
-        /*
-         * Hide empty fields
-         */
 
         memoryDate.style.display =
             current.date
@@ -447,16 +563,48 @@ function showMemory(index) {
                 : "none";
 
 
-        memory.style.opacity =
-            "1";
+        /* =============================
+           TIMELINE
+        ============================= */
+
+        updateTimeline(index);
 
 
-        /*
-         * Preload next image
-         */
+        /* =============================
+           ANIMATE IN
+        ============================= */
+
+        memory.style.transform =
+            direction > 0
+                ? "translateX(35px)"
+                : "translateX(-35px)";
+
+
+        requestAnimationFrame(() => {
+
+            requestAnimationFrame(() => {
+
+                memory.style.opacity =
+                    "1";
+
+                memory.style.transform =
+                    "translateX(0)";
+
+            });
+
+        });
+
+
+        /* =============================
+           PRELOAD NEXT
+        ============================= */
 
         preloadImage(
             index + 1
+        );
+
+        preloadImage(
+            index - 1
         );
 
     }, 250);
@@ -472,11 +620,16 @@ playButton.addEventListener(
     "click",
     () => {
 
-        opening.classList.add("hidden");
+        opening.classList.add(
+            "hidden"
+        );
+
 
         setTimeout(() => {
 
-            timeline.classList.add("active");
+            timeline.classList.add(
+                "active"
+            );
 
             showMemory(0);
 
@@ -500,7 +653,8 @@ nextButton.addEventListener(
         ) {
 
             showMemory(
-                currentMemory + 1
+                currentMemory + 1,
+                1
             );
 
         }
@@ -522,10 +676,33 @@ previousButton.addEventListener(
         ) {
 
             showMemory(
-                currentMemory - 1
+                currentMemory - 1,
+                -1
             );
 
         }
+
+    }
+);
+
+
+/* =================================
+   RESTART
+================================= */
+
+restartButton.addEventListener(
+    "click",
+    () => {
+
+        restartButton.classList.remove(
+            "visible"
+        );
+
+
+        showMemory(
+            0,
+            -1
+        );
 
     }
 );
@@ -549,7 +726,8 @@ document.addEventListener(
             ) {
 
                 showMemory(
-                    currentMemory + 1
+                    currentMemory + 1,
+                    1
                 );
 
             }
@@ -566,7 +744,8 @@ document.addEventListener(
             ) {
 
                 showMemory(
-                    currentMemory - 1
+                    currentMemory - 1,
+                    -1
                 );
 
             }
