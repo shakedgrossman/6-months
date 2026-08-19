@@ -11,6 +11,15 @@
 
     <title>6 Months of Us</title>
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500&family=Cormorant+Garamond:wght@300;400;500&display=swap"
+        rel="stylesheet"
+    >
+
     <link
         rel="stylesheet"
         href="style.css"
@@ -40,6 +49,16 @@
 
     <main id="timeline">
 
+        <!-- Timeline line -->
+
+        <div id="timelineLine">
+            <div id="timelineProgress"></div>
+            <div id="timelineDot"></div>
+        </div>
+
+
+        <!-- Previous -->
+
         <button
             id="previousButton"
             class="nav-button previous"
@@ -48,6 +67,8 @@
             ‹
         </button>
 
+
+        <!-- Memory -->
 
         <div id="memory">
 
@@ -79,8 +100,23 @@
 
             </div>
 
+
+            <!-- Progress -->
+
+            <div id="memoryProgress">
+
+                <span id="currentNumber">01</span>
+
+                <span class="progressLine"></span>
+
+                <span id="totalNumber">40</span>
+
+            </div>
+
         </div>
 
+
+        <!-- Next -->
 
         <button
             id="nextButton"
@@ -88,6 +124,16 @@
             aria-label="Next"
         >
             ›
+        </button>
+
+
+        <!-- Restart -->
+
+        <button
+            id="restartButton"
+            aria-label="Start again"
+        >
+            מההתחלה
         </button>
 
     </main>
