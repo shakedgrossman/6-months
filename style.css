@@ -163,82 +163,12 @@ body {
 
 
 /* =================================
-   SUBTLE TIMELINE LINE
-================================= */
-
-#timelineLine {
-
-    position: absolute;
-
-    left: 50%;
-
-    top: 5%;
-
-    width: 1px;
-
-    height: 90%;
-
-    background: rgba(56, 64, 71, 0.45);
-
-    transform: translateX(-50%);
-
-    pointer-events: none;
-}
-
-
-#timelineProgress {
-
-    position: absolute;
-
-    left: 0;
-
-    top: 0;
-
-    width: 1px;
-
-    height: 0%;
-
-    background: var(--beige);
-
-    transition:
-        height 0.8s ease;
-}
-
-
-#timelineDot {
-
-    position: absolute;
-
-    left: 50%;
-
-    top: 0%;
-
-    width: 8px;
-    height: 8px;
-
-    border-radius: 50%;
-
-    background: var(--beige);
-
-    transform:
-        translate(-50%, -50%);
-
-    transition:
-        top 0.8s ease;
-}
-
-
-/* =================================
    MEMORY
 ================================= */
 
 #memory {
 
-    position: relative;
-
-    z-index: 2;
-
-    width: min(70vw, 650px);
+    width: min(75vw, 650px);
 
     display: flex;
 
@@ -253,8 +183,12 @@ body {
     transform: translateX(0);
 
     transition:
-        opacity 0.45s ease,
-        transform 0.45s ease;
+        transform 0.45s ease,
+        opacity 0.45s ease;
+
+    will-change:
+        transform,
+        opacity;
 }
 
 
@@ -272,6 +206,8 @@ body {
 
     align-items: center;
     justify-content: center;
+
+    overflow: visible;
 }
 
 
@@ -370,70 +306,6 @@ body {
     direction: rtl;
 
     text-align: center;
-
-    min-height: 0;
-}
-
-
-/* =================================
-   MEMORY COUNTER
-================================= */
-
-#memoryProgress {
-
-    margin-top: 20px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    font-family:
-        "Assistant",
-        Arial,
-        sans-serif;
-
-    font-size: 0.62rem;
-
-    letter-spacing: 0.12em;
-
-    color: var(--muted);
-
-    opacity: 0.8;
-}
-
-
-.progressLine {
-
-    width: 80px;
-
-    height: 1px;
-
-    background: var(--line);
-
-    position: relative;
-}
-
-
-.progressLine::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-
-    top: 0;
-
-    height: 1px;
-
-    width: 0%;
-
-    background: var(--beige);
-
-    transition:
-        width 0.8s ease;
 }
 
 
@@ -583,13 +455,11 @@ body {
 @media (max-width: 600px) {
 
     #memory {
-
-        width: 82vw;
+        width: 88vw;
     }
 
 
     #mediaContainer {
-
         height: 48vh;
     }
 
@@ -597,7 +467,7 @@ body {
     #memoryImage,
     #memoryVideo {
 
-        max-width: 82vw;
+        max-width: 86vw;
 
         height: 45vh;
     }
@@ -607,7 +477,7 @@ body {
 
         margin-top: 12px;
 
-        max-width: 82vw;
+        max-width: 86vw;
     }
 
 
@@ -642,26 +512,6 @@ body {
     .next {
 
         right: 2%;
-    }
-
-
-    #timelineLine {
-
-        left: 50%;
-
-        height: 88%;
-    }
-
-
-    #memoryProgress {
-
-        margin-top: 15px;
-    }
-
-
-    .progressLine {
-
-        width: 55px;
     }
 
 
