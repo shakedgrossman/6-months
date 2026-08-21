@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he">
 
 <head>
     <meta charset="UTF-8">
@@ -10,14 +10,6 @@
     >
 
     <title>6 Months of Us</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500&family=Cormorant+Garamond:wght@300;400;500&display=swap"
-        rel="stylesheet"
-    >
 
     <link
         rel="stylesheet"
@@ -48,61 +40,61 @@
 
     <main id="timeline">
 
+        <!-- Previous -->
+
         <button
             id="previousButton"
             class="nav-button previous"
             aria-label="Previous"
         >
-            ‹
+            ↑
         </button>
 
 
+        <!-- Memory -->
+
         <div id="memory">
 
-            <div id="mediaContainer">
+            <img
+                id="memoryImage"
+                src=""
+                alt="Memory"
+            >
 
-                <img
-                    id="memoryImage"
-                    src=""
-                    alt="Memory"
-                >
-
-                <video
-                    id="memoryVideo"
-                    playsinline
-                    preload="metadata"
-                ></video>
-
-            </div>
+            <video
+                id="memoryVideo"
+                playsinline
+                controls
+            ></video>
 
 
-            <div id="memoryInfo">
+            <div id="memoryTitle"></div>
 
-                <h2 id="memoryTitle"></h2>
+            <div id="memoryDate"></div>
 
-                <div id="memoryDate"></div>
-
-                <p id="memoryDescription"></p>
-
-                <!-- Restart button -->
-                <button
-                    id="restartButton"
-                    aria-label="Back to beginning"
-                >
-                    ↩
-                </button>
-
-            </div>
+            <div id="memoryDescription"></div>
 
         </div>
 
+
+        <!-- Next -->
 
         <button
             id="nextButton"
             class="nav-button next"
             aria-label="Next"
         >
-            ›
+            ↓
+        </button>
+
+
+        <!-- Restart -->
+
+        <button
+            id="restartButton"
+            aria-label="Back to beginning"
+        >
+            ↑
         </button>
 
     </main>
