@@ -173,13 +173,15 @@ body {
 }
 
 
+/* תמונות וסרטונים - קצת יותר קטנים */
+
 #memoryImage,
 #memoryVideo {
     display: block;
 
-    width: min(70vw, 600px);
+    width: min(66vw, 560px);
 
-    height: min(65vh, 500px);
+    height: min(60vh, 460px);
 
     object-fit: contain;
 
@@ -276,11 +278,6 @@ body {
         transform 0.3s ease;
 }
 
-
-/*
-   Only the arrow head is visible.
-   ‹ and › have no shaft/body.
-*/
 
 .previous {
     left: 1.5%;
@@ -390,8 +387,8 @@ body {
 
     #memoryImage,
     #memoryVideo {
-        width: 86vw;
-        height: 58vh;
+        width: 82vw;
+        height: 55vh;
     }
 
 
