@@ -174,30 +174,14 @@ body {
 
 
 /* =================================
-   IMAGE
+   MEDIA
 ================================= */
 
-#memoryImage {
+#memoryImage,
+#memoryVideo {
     display: block;
 
-    width: min(60vw, 500px);
-
-    height: min(55vh, 430px);
-
-    object-fit: contain;
-
-    border: none;
-}
-
-
-/* =================================
-   VIDEO
-================================= */
-
-#memoryVideo {
-    display: none;
-
-    width: min(60vw, 500px);
+    width: min(55vw, 500px);
 
     height: min(55vh, 430px);
 
@@ -212,13 +196,16 @@ body {
 ================================= */
 
 #memoryTitle {
+
     margin-top: 18px;
 
-    font-size: 1.25rem;
-
-    line-height: 1.35;
+    font-size: 1.45rem;
 
     font-weight: 400;
+
+    color: var(--beige);
+
+    text-align: center;
 }
 
 
@@ -227,7 +214,8 @@ body {
 ================================= */
 
 #memoryDate {
-    margin-top: 7px;
+
+    margin-top: 8px;
 
     font-family:
         Arial,
@@ -236,9 +224,11 @@ body {
 
     font-size: 0.7rem;
 
-    letter-spacing: 0.16em;
+    letter-spacing: 0.15em;
 
     color: var(--muted);
+
+    text-align: center;
 }
 
 
@@ -247,31 +237,35 @@ body {
 ================================= */
 
 #memoryDescription {
+
     margin-top: 12px;
 
     max-width: 560px;
 
     font-size: 0.95rem;
 
-    line-height: 1.6;
+    line-height: 1.55;
+
+    color: var(--beige);
 
     white-space: pre-line;
 
-    color: var(--beige);
+    text-align: center;
 }
 
 
 /* =================================
-   NAVIGATION
+   SIDE NAVIGATION
 ================================= */
 
 .nav-button {
+
     position: absolute;
 
-    left: 50%;
+    top: 50%;
 
-    width: 50px;
-    height: 50px;
+    width: auto;
+    height: auto;
 
     border: none;
 
@@ -279,13 +273,18 @@ body {
 
     color: var(--beige);
 
-    font-size: 27px;
+    font-size: 32px;
 
-    font-family: Georgia, serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
     cursor: pointer;
 
     z-index: 20;
+
+    padding: 12px;
 
     display: flex;
 
@@ -298,62 +297,65 @@ body {
 }
 
 
-/* Previous */
+/* =================================
+   PREVIOUS — LEFT
+================================= */
 
 .previous {
-    top: 3%;
+
+    left: 4%;
 
     transform:
-        translateX(-50%);
+        translateY(-50%);
 }
 
 
 .previous:hover {
-    transform:
-        translateX(-50%)
-        translateY(-5px);
-}
-
-
-/* Next */
-
-.next {
-    bottom: 3%;
 
     transform:
-        translateX(-50%);
-}
-
-
-.next:hover {
-    transform:
-        translateX(-50%)
-        translateY(5px);
-}
-
-
-/* Hide previous button on first memory */
-
-.nav-button.hidden {
-    opacity: 0;
-
-    pointer-events: none;
+        translateY(-50%)
+        translateX(-5px);
 }
 
 
 /* =================================
-   RESTART BUTTON
+   NEXT — RIGHT
 ================================= */
 
-#restartButton {
+.next {
+
+    right: 4%;
+
+    transform:
+        translateY(-50%);
+}
+
+
+.next:hover {
+
+    transform:
+        translateY(-50%)
+        translateX(5px);
+}
+
+
+/* =================================
+   RESTART
+================================= */
+
+.restart-button {
+
     position: absolute;
 
     left: 50%;
 
     bottom: 3%;
 
-    width: 50px;
-    height: 50px;
+    transform:
+        translateX(-50%);
+
+    width: auto;
+    height: auto;
 
     border: none;
 
@@ -361,25 +363,22 @@ body {
 
     color: var(--beige);
 
-    font-size: 27px;
+    font-size: 30px;
 
-    font-family: Georgia, serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
     cursor: pointer;
 
     z-index: 20;
 
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
+    padding: 8px;
 
     opacity: 0;
 
-    pointer-events: none;
-
-    transform:
-        translateX(-50%);
+    visibility: hidden;
 
     transition:
         opacity 0.3s ease,
@@ -387,17 +386,20 @@ body {
 }
 
 
-#restartButton.visible {
+.restart-button.visible {
+
     opacity: 1;
 
-    pointer-events: auto;
+    visibility: visible;
 }
 
 
-#restartButton:hover {
+.restart-button:hover {
+
     transform:
         translateX(-50%)
-        translateY(-5px);
+        rotate(-15deg)
+        scale(1.08);
 }
 
 
@@ -408,34 +410,65 @@ body {
 @media (max-width: 600px) {
 
     #memory {
-        width: 88vw;
+
+        width: 82vw;
     }
 
 
     #memoryImage,
     #memoryVideo {
-        width: 82vw;
 
-        height: 48vh;
+        width: 78vw;
+
+        height: 52vh;
+    }
+
+
+    #opening h1 {
+
+        font-size: 2.4rem;
     }
 
 
     #memoryTitle {
-        font-size: 1.15rem;
+
+        font-size: 1.25rem;
     }
 
 
     #memoryDescription {
-        max-width: 84vw;
 
-        font-size: 0.9rem;
+        max-width: 80vw;
+
+        font-size: 0.88rem;
 
         line-height: 1.5;
     }
 
 
-    #opening h1 {
-        font-size: 2.4rem;
+    .nav-button {
+
+        font-size: 28px;
+
+        padding: 10px;
+    }
+
+
+    .previous {
+
+        left: 2%;
+    }
+
+
+    .next {
+
+        right: 2%;
+    }
+
+
+    .restart-button {
+
+        bottom: 2%;
     }
 
 }
