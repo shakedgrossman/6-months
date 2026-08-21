@@ -40,6 +40,7 @@
 
     <main id="timeline">
 
+
         <!-- Previous -->
 
         <button
@@ -47,7 +48,7 @@
             class="nav-button previous"
             aria-label="Previous"
         >
-            ↑
+            ←
         </button>
 
 
@@ -64,9 +65,9 @@
             <video
                 id="memoryVideo"
                 playsinline
-                controls
+                loop
+                style="display: none;"
             ></video>
-
 
             <div id="memoryTitle"></div>
 
@@ -84,7 +85,7 @@
             class="nav-button next"
             aria-label="Next"
         >
-            ↓
+            →
         </button>
 
 
@@ -92,9 +93,10 @@
 
         <button
             id="restartButton"
+            class="restart-button"
             aria-label="Back to beginning"
         >
-            ↑
+            ↶
         </button>
 
     </main>
