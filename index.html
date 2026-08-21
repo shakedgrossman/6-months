@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -40,19 +40,14 @@
 
     <main id="timeline">
 
-
-        <!-- Previous -->
-
         <button
             id="previousButton"
             class="nav-button previous"
             aria-label="Previous"
         >
-            ←
+            ‹
         </button>
 
-
-        <!-- Memory -->
 
         <div id="memory">
 
@@ -64,10 +59,10 @@
 
             <video
                 id="memoryVideo"
+                controls
                 playsinline
-                loop
-                style="display: none;"
             ></video>
+
 
             <div id="memoryTitle"></div>
 
@@ -78,25 +73,22 @@
         </div>
 
 
-        <!-- Next -->
-
         <button
             id="nextButton"
             class="nav-button next"
             aria-label="Next"
         >
-            →
+            ›
         </button>
 
 
-        <!-- Restart -->
+        <!-- Replay button - only appears on last memory -->
 
         <button
             id="restartButton"
-            class="restart-button"
-            aria-label="Back to beginning"
+            aria-label="Replay"
         >
-            ↶
+            ↻
         </button>
 
     </main>
