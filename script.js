@@ -11,7 +11,6 @@ const memories = [
         description: "שישה חודשים שאתה בחיים שלי\nורציתי לעצור כדי לסכם את התקופה הזו מהעיניים שלי"
     },
 
-
     {
         file: "Memory 1.jpg",
         title: "היום שבו באתי אליך לים",
@@ -19,13 +18,12 @@ const memories = [
         description: "ישבנו יחד אחרי השיחה הראשונה שהייתה לנו כמה לילות לפני, שאפשר להגיד שמלאכים בשמיים סידרו לנו את הכוכבים כדי שנפגש והיא תקרה."
     },
 
-
     {
-        file: "Memory 1.5.JPEG", "הצד השני של המצלמה",
+        file: "Memory 1.5.JPEG",
+        title: "הצד השני של המצלמה",
         date: "21.02",
         description: "דרך אגב אני חושבת שזו הפעם הראשונה שאכלתי דרגון פרוט."
     },
-
 
     {
         file: "Memory 2.jpg",
@@ -34,7 +32,6 @@ const memories = [
         description: "אחרי שהסעת אותי לאוטובוס בהוי אן, נפרדנו דרכנו, עד ליום שאחרי, שנסעת את כל הדרך על טוסטוס עד אלי כדי להיות איתי עוד קצת.\nתודה שידעת לבוא."
     },
 
-
     {
         file: "Memory 2.5.JPG",
         title: "השיחה על הנהר",
@@ -42,14 +39,12 @@ const memories = [
         description: "אחרי השיחה הזו הבנו שאולי אתה לא בא להיות איתי רק לעוד יום אחד ואולי אתה גם לא חוזר לארץ."
     },
 
-
     {
         file: "Memory 3.JPG",
         title: "היום שאחרי",
-        ydate: "23.02",
+        date: "23.02",
         description: "(תראה איזו לבנה אני) הרבה סימני שאלה ובסוף בבוקר שאחרי נפרדנו דרכנו שוב, אתה חזרת הביתה ואני המשכתי את הטיול שלי."
     },
-
 
     {
         file: "Memory 4.JPG",
@@ -58,14 +53,12 @@ const memories = [
         description: "חודשיים שלמים בהם בלי שסמנו לב נכנסו לקשר מרחוק ונאלצנו להתחיל להכיר אחד את השני יותר בלי להיות אפילו באותה יבשת."
     },
 
-
     {
         file: "Memory 5.JPG",
         title: "The long distance faze",
         date: "23.02–23.04",
         description: "לפחות קיבלתי סרטונים כאלה"
     },
-
 
     {
         file: "Memory 6.JPG",
@@ -74,14 +67,12 @@ const memories = [
         description: "מתכונן לאיחוד הגדול…"
     },
 
-
     {
         file: "Memory 7.JPG",
         title: "האיחוד הגדול",
         date: "23.04",
         description: "שוב, קצת כנגד כל הסיכויים, אחרי טיסות שהתבטלו והרבה אי וודאות, הגעת עד אלי."
     },
-
 
     {
         file: "Memory 8.JPG",
@@ -90,14 +81,12 @@ const memories = [
         description: "boom boom auchi auchi"
     },
 
-
     {
         file: "Memory 9.JPG",
         title: "The wedding",
         date: "30.04",
         description: "מצאנו את עצמנו בחתונה, לא שלנו, אפילו לא ראינו את החתן והכלה אבל החתונה נראתה די מטורפת ניתן להם את זה"
     },
-
 
     {
         file: "Memory 10.JPG",
@@ -106,14 +95,12 @@ const memories = [
         description: "כן, זה היה חייב להכנס וכן, אני יודעת שזה לא מה שאתה אוכל פה, ואני מתחרטת על זה שאין לי תיעוד לפעם היחידה שראיתי אותך לא מצליח להתמודד עם חריף."
     },
 
-
     {
         file: "Memory 12.JPG",
         title: "The healing faze",
         date: "תכלס זה לא היה הרבה זמן אבל הרגיש נצח",
         description: "תראה איך אתה מטפל בי יפה"
     },
-
 
     {
         file: "Memory 13.JPG",
@@ -122,14 +109,12 @@ const memories = [
         description: "יותם"
     },
 
-
     {
         file: "Memory 15.png",
         title: "The tattoo",
         date: "08.05",
         description: "auchi auchi #2\nהדרך שלך להתמודד עם כאב היא באמת השראה לכל העולם מבחינתי"
     },
-
 
     {
         file: "Memory 16.jpg",
@@ -138,14 +123,12 @@ const memories = [
         description: "עצרנו ללמוד ולשמוע אנשים שאומרים דברים חכמים וגם אנשים שאומרים שטויות"
     },
 
-
     {
         file: "Memory 17.jpg",
         title: "The fixing our phones faze",
         date: "11.05",
         description: "לא ידענו שזה לא יסתיים בטיול אחד ויחיד למקלוד, אפשר להגיד שנפלנו חזק"
     },
-
 
     {
         file: "Memory 18.jpg",
@@ -154,14 +137,12 @@ const memories = [
         description: "כן, רציתי לתת מקום לזה כי הייתה פה תגלית משנה מציאות מבחינתי. תודה שגילית לי עולם."
     },
 
-
     {
         file: "Memory 19.JPG",
         title: "The waterfall",
         date: "15.05",
         description: "סוף סוף לקחת אותי למפל, אפשר להגיד שזה אחד המקומות שאני לא אשכח מהטיול"
     },
-
 
     {
         file: "Memory 20.jpg",
@@ -170,14 +151,12 @@ const memories = [
         description: "תודה על כל מה שקרה על הסלעים האלו"
     },
 
-
     {
         file: "Memory 21.JPG",
         title: "The waterfall",
         date: "15.05",
         description: "זוכר שתלית את הדגלים במשך כל כך הרבה זמן שהתחלתי לדאוג?"
     },
-
 
     {
         file: "Memory 22.JPG",
@@ -186,14 +165,12 @@ const memories = [
         description: "וזוכר את זה?"
     },
 
-
     {
         file: "Memory 22.5.JPG",
         title: "Meow",
         date: "18.05",
         description: "הרגעים האחרונים שלנו בישראליאדה של מנאלי"
     },
-
 
     {
         file: "Memory 23.JPG",
@@ -202,14 +179,12 @@ const memories = [
         description: "הגיחה הראשונה"
     },
 
-
     {
         file: "Memory 23.png",
         title: "Sethan",
         date: "22.05–12.06",
         description: "אחת התקופות הכי יפות שהיו לי בטיול, אני מרגישה שהשארנו חלק מאיתנו במקום הזה ואני כל כך מחכה שנחזור לשם מתישהו, נאכל את האוכל של דידי ואולי אפילו נפגוש שוב את פרסד!\nהתמונה מוקדשת לבודלר האהוב עלי ולאהוב שלי מראה לי איך עושים אותו"
     },
-
 
     {
         file: "Memory 24.png",
@@ -218,14 +193,12 @@ const memories = [
         description: "תודה שלימדת אותי לטפס\nאני אוהבת אותך"
     },
 
-
     {
         file: "Memory 25.JPG",
         title: "עשר חפיסות.",
         date: "22.05–12.06",
         description: "לא פחות ולא יותר. יא משוגע."
     },
-
 
     {
         file: "Memory 26.JPG",
@@ -234,14 +207,12 @@ const memories = [
         description: "אוהבת אותך"
     },
 
-
     {
         file: "Memory 28.JPG",
         title: "הסרט",
         date: "13.06",
         description: "מתחילים למצוא את דרכנו החוצה מהודו ובדרך רואים את הסרט שאין להזכיר את שמו בקולנוע הכי פנסי שכנראה נהיה בו בחיים."
     },
-
 
     {
         file: "Memory 29.JPG",
@@ -250,14 +221,12 @@ const memories = [
         description: "יפה שלי תודה שלקחת אותנו לראות את הטאג"
     },
 
-
     {
         file: "Memory 30.HEIC",
         title: "Sri Lanka",
         date: "19.06",
         description: "מגיעים לחדר החדש שלנו, עם המארח האובר פרנדלי והכי אמין שפגשנו, ומהר מאוד עוברים לבית שלנו לשאר התקופה היפה בישרליאדה של ארוגם."
     },
-
 
     {
         file: "Memory 31.MOV",
@@ -266,14 +235,12 @@ const memories = [
         description: "עם כל הביקורת שהייתה לי, אני לא חושבת שהיה לי עוד מורה כל כך dedicated. אני יודעת כמה לא רצית להיות מורה לגלישה כי זה די מסריח, ועדיין נכנסת איתי פעם אחר פעם ולא ויתרת לי. תודה לך."
     },
 
-
     {
         file: "Memory 31.5.JPG",
         title: "אקרו יוגה",
         date: "07.07",
         description: "תודה שהיית איתי ועזרת לי להוציא לפועל את השיעורים האלה, מהנוכחות ועד הביקורת הבונה והדיוקים שלך וההכנות שלפני ובאמת כל מה שעשית בשביל לעזור לי לגרום לזה לקרות."
     },
-
 
     {
         file: "Memory 32.JPG",
@@ -282,14 +249,12 @@ const memories = [
         description: "נסעת רחוק מהישראלים רק כדי לפגוש ישראלים:) והיה שווה את זה ברמות."
     },
 
-
     {
         file: "Memory 33.HEIC",
         title: "Kalpitia",
         date: "09.07",
         description: "עוד אחת מהתקופות הכי יפות שלי בטיול.\nכמה דברים קרו שם, האנשים שפגשנו, האוכל של מאמא, החשיפה לתרבות, האוכל שלך!!!! והקייט אובייסלי."
     },
-
 
     {
         file: "Memory 33.5.JPG",
@@ -298,14 +263,12 @@ const memories = [
         description: "הבית השני שלנו"
     },
 
-
     {
         file: "Memory 34.JPG",
         title: "Mama's food",
         date: "",
         description: "body dinner ready"
     },
-
 
     {
         file: "Memory 35.JPG",
@@ -314,14 +277,12 @@ const memories = [
         description: "תודה שצילמת את זה"
     },
 
-
     {
         file: "Memory 36.JPG",
         title: "האוכל שלך!!!!",
         date: "",
         description: "מנצח את האוכל של מאמה פור."
     },
-
 
     {
         file: "Memory 37.JPG",
@@ -330,14 +291,12 @@ const memories = [
         description: "תודה על כל אחת מהארוחות שהכנת לי, אני כל כך מעריכה את זה."
     },
 
-
     {
         file: "Memory 38.MOV",
         title: "Vella island",
         date: "28.07",
         description: "איזה כיף שנסענו לשם, היה לי באמת מדהים. ואתה מדהים."
     },
-
 
     {
         file: "Memory 39.MOV",
@@ -346,14 +305,12 @@ const memories = [
         description: "ושוב, תודה שלימדת אותי עם כל כך הרבה מחויבות. ללמוד קייט זאת באמת אחת המתנות הכי גדולות שיכולתי לקבל ממך. זה לימד אותי המון, ואני יודעת שהדלת רק נפתחה ויש לי עוד המוןן ללמוד ולהנות מכל העולם הזה."
     },
 
-
     {
         file: "Memory 40.png",
         title: "Australia",
         date: "01.08",
         description: "unbelievable\nאחרי הכל הגענו לפה."
     },
-
 
     {
         file: "Memory 42.JPG",
@@ -362,14 +319,12 @@ const memories = [
         description: "כאילו לא גרנו יחד עד עכשיו 🤪\nזה עדיין די מטורף"
     },
 
-
     {
         file: "Memory 43.JPG",
         title: "הרכב!!!!",
         date: "19.08",
         description: "אין כמוך, תודה שדאגת לזה מההתחלה ועד הסוף❤️"
     },
-
 
     {
         file: "Memory 44.png",
@@ -386,7 +341,6 @@ const memories = [
 ================================= */
 
 let currentMemory = 0;
-
 let isAnimating = false;
 
 
@@ -444,7 +398,6 @@ function isVideo(file) {
         lower.endsWith(".mp4") ||
         lower.endsWith(".mov")
     );
-
 }
 
 
@@ -460,7 +413,6 @@ function preloadMemory(index) {
     ) {
         return;
     }
-
 
     const item =
         memories[index];
@@ -484,9 +436,7 @@ function preloadMemory(index) {
 
         image.src =
             "Images/" + item.file;
-
     }
-
 }
 
 
@@ -499,10 +449,8 @@ function updateText(item) {
     memoryTitle.textContent =
         item.title;
 
-
     memoryDate.textContent =
         item.date;
-
 
     memoryDescription.textContent =
         item.description;
@@ -532,14 +480,11 @@ function loadMedia(item) {
         memoryImage.style.display =
             "none";
 
-
         memoryVideo.style.display =
             "block";
 
-
         memoryVideo.src =
             "Images/" + item.file;
-
 
         memoryVideo.load();
 
@@ -553,23 +498,18 @@ function loadMedia(item) {
 
         memoryVideo.load();
 
-
         memoryVideo.style.display =
             "none";
-
 
         memoryImage.style.display =
             "block";
 
-
         memoryImage.src =
             "Images/" + item.file;
-
 
         memoryImage.alt =
             item.title;
     }
-
 }
 
 
@@ -631,16 +571,6 @@ function showMemory(
     isAnimating = true;
 
 
-    /*
-     * Going forward:
-     * old → leaves left
-     * new → enters from right
-     *
-     * Going backward:
-     * old → leaves right
-     * new → enters from left
-     */
-
     const exitDistance =
         direction > 0
             ? "-110vw"
@@ -660,10 +590,8 @@ function showMemory(
     memory.style.transition =
         "transform 0.45s ease, opacity 0.45s ease";
 
-
     memory.style.transform =
         `translateX(${exitDistance})`;
-
 
     memory.style.opacity =
         "0";
@@ -678,7 +606,6 @@ function showMemory(
         currentMemory =
             index;
 
-
         loadMedia(item);
 
         updateText(item);
@@ -686,27 +613,15 @@ function showMemory(
         updateRestartButton();
 
 
-        /*
-         * Put the new memory
-         * on the opposite side.
-         */
-
         memory.style.transition =
             "none";
-
 
         memory.style.transform =
             `translateX(${enterDistance})`;
 
-
         memory.style.opacity =
             "0";
 
-
-        /*
-         * Force browser to register
-         * the new position.
-         */
 
         void memory.offsetWidth;
 
@@ -718,10 +633,8 @@ function showMemory(
         memory.style.transition =
             "transform 0.55s ease, opacity 0.55s ease";
 
-
         memory.style.transform =
             "translateX(0)";
-
 
         memory.style.opacity =
             "1";
@@ -735,16 +648,10 @@ function showMemory(
         }, 550);
 
 
-        /*
-         * Preload nearby memories
-         */
-
         preloadMemory(index + 1);
-
         preloadMemory(index - 1);
 
     }, 450);
-
 }
 
 
@@ -768,9 +675,7 @@ function updateRestartButton() {
         restartButton.classList.remove(
             "visible"
         );
-
     }
-
 }
 
 
@@ -793,16 +698,13 @@ playButton.addEventListener(
                 "active"
             );
 
-
             showMemory(
                 0,
                 0,
                 false
             );
 
-
         }, 500);
-
     }
 );
 
@@ -825,9 +727,7 @@ nextButton.addEventListener(
                 1,
                 true
             );
-
         }
-
     }
 );
 
@@ -849,9 +749,7 @@ previousButton.addEventListener(
                 -1,
                 true
             );
-
         }
-
     }
 );
 
@@ -869,17 +767,11 @@ restartButton.addEventListener(
         }
 
 
-        restartButton.classList.remove(
-            "visible"
-        );
-
-
         showMemory(
             0,
             -1,
             true
         );
-
     }
 );
 
@@ -904,9 +796,7 @@ document.addEventListener(
                     1,
                     true
                 );
-
             }
-
         }
 
 
@@ -921,10 +811,7 @@ document.addEventListener(
                     -1,
                     true
                 );
-
             }
-
         }
-
     }
 );
