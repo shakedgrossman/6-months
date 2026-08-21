@@ -454,12 +454,10 @@ function updateText(item) {
     memoryDescription.textContent =
         item.description;
 
-
     memoryDate.style.display =
         item.date
             ? "block"
             : "none";
-
 
     memoryDescription.style.display =
         item.description
@@ -474,11 +472,6 @@ function updateText(item) {
 
 function updateNavigation() {
 
-    /*
-     * אין צורך בחץ אחורה
-     * בשקופית הראשונה.
-     */
-
     if (currentMemory === 0) {
 
         previousButton.style.visibility =
@@ -490,11 +483,6 @@ function updateNavigation() {
             "visible";
     }
 
-
-    /*
-     * החץ קדימה לא מופיע
-     * בשקופית האחרונה.
-     */
 
     if (
         currentMemory ===
@@ -586,10 +574,6 @@ function showMemory(
         memories[index];
 
 
-    /* =============================
-       NO ANIMATION
-    ============================= */
-
     if (!animate) {
 
         currentMemory =
@@ -609,10 +593,6 @@ function showMemory(
     }
 
 
-    /* =============================
-       START ANIMATION
-    ============================= */
-
     isAnimating = true;
 
 
@@ -628,10 +608,6 @@ function showMemory(
             : "-110vw";
 
 
-    /* =============================
-       EXIT
-    ============================= */
-
     memory.style.transition =
         "transform 0.45s ease, opacity 0.45s ease";
 
@@ -641,10 +617,6 @@ function showMemory(
     memory.style.opacity =
         "0";
 
-
-    /* =============================
-       CHANGE CONTENT
-    ============================= */
 
     setTimeout(() => {
 
@@ -672,10 +644,6 @@ function showMemory(
 
         void memory.offsetWidth;
 
-
-        /* =============================
-           ENTER
-        ============================= */
 
         memory.style.transition =
             "transform 0.55s ease, opacity 0.55s ease";
@@ -737,7 +705,6 @@ playButton.addEventListener(
         opening.classList.add(
             "hidden"
         );
-
 
         setTimeout(() => {
 
@@ -812,7 +779,6 @@ restartButton.addEventListener(
         if (isAnimating) {
             return;
         }
-
 
         showMemory(
             0,
