@@ -60,7 +60,7 @@ const memories = [
 
 
     {
-        file: "Memory 5.MP4",
+        file: "Memory 5.JPG",
         title: "The long distance faze",
         date: "23.02–23.04",
         description: "לפחות קיבלתי סרטונים כאלה"
