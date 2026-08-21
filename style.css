@@ -193,13 +193,12 @@ body {
 
 
 #memoryTitle {
-    margin-top: 18px;
+    margin-top: 20px;
 
-    font-size: 1.25rem;
+    font-size:
+        clamp(1.2rem, 2.5vw, 1.6rem);
 
     font-weight: 400;
-
-    color: var(--beige);
 }
 
 
@@ -215,6 +214,8 @@ body {
 
     letter-spacing: 0.18em;
 
+    text-transform: uppercase;
+
     color: var(--muted);
 }
 
@@ -224,13 +225,14 @@ body {
 
     max-width: 600px;
 
-    font-size: 0.95rem;
+    font-size:
+        clamp(0.9rem, 1.8vw, 1.05rem);
 
     line-height: 1.55;
 
-    color: var(--beige);
-
     white-space: pre-line;
+
+    color: var(--beige);
 }
 
 
@@ -243,10 +245,8 @@ body {
 
     top: 50%;
 
-    width: 48px;
-    height: 48px;
-
-    transform: translateY(-50%);
+    width: 60px;
+    height: 80px;
 
     border: none;
 
@@ -254,11 +254,13 @@ body {
 
     color: var(--beige);
 
-    font-size: 38px;
+    font-family: Georgia, serif;
+
+    font-size: 58px;
+
+    font-weight: 300;
 
     line-height: 1;
-
-    font-family: Arial, sans-serif;
 
     cursor: pointer;
 
@@ -269,29 +271,32 @@ body {
     align-items: center;
     justify-content: center;
 
-    padding: 0;
-
     transition:
         opacity 0.3s ease,
         transform 0.3s ease;
 }
 
 
-/* LEFT */
+/*
+   Only the arrow head is visible.
+   ‹ and › have no shaft/body.
+*/
 
 .previous {
-    left: 2.5%;
+    left: 1.5%;
+
+    transform:
+        translateY(-50%);
 }
 
-
-/* RIGHT */
 
 .next {
-    right: 2.5%;
+    right: 1.5%;
+
+    transform:
+        translateY(-50%);
 }
 
-
-/* Hover */
 
 .previous:hover {
     transform:
@@ -308,7 +313,7 @@ body {
 
 
 /* =================================
-   RESTART / REPLAY
+   RESTART BUTTON
 ================================= */
 
 #restartButton {
@@ -316,12 +321,12 @@ body {
 
     left: 50%;
 
-    bottom: 3%;
-
-    width: 48px;
-    height: 48px;
+    bottom: 2.5rem;
 
     transform: translateX(-50%);
+
+    width: 46px;
+    height: 46px;
 
     border: none;
 
@@ -329,22 +334,23 @@ body {
 
     color: var(--beige);
 
-    font-size: 35px;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 34px;
+
+    font-weight: 300;
 
     line-height: 1;
 
-    font-family: Arial, sans-serif;
-
     cursor: pointer;
-
-    z-index: 30;
 
     display: flex;
 
     align-items: center;
     justify-content: center;
-
-    padding: 0;
 
     opacity: 0;
 
@@ -363,10 +369,11 @@ body {
 }
 
 
-#restartButton:hover {
+#restartButton.visible:hover {
     transform:
         translateX(-50%)
-        scale(1.1);
+        rotate(-25deg)
+        scale(1.08);
 }
 
 
@@ -384,8 +391,7 @@ body {
     #memoryImage,
     #memoryVideo {
         width: 86vw;
-
-        height: 62vh;
+        height: 58vh;
     }
 
 
@@ -395,39 +401,41 @@ body {
 
 
     .nav-button {
-        font-size: 36px;
+        width: 45px;
+        height: 65px;
 
-        width: 42px;
-        height: 42px;
+        font-size: 50px;
     }
 
 
     .previous {
-        left: 1%;
+        left: 0.5%;
     }
 
 
     .next {
-        right: 1%;
+        right: 0.5%;
     }
 
 
     #memoryTitle {
-        font-size: 1.15rem;
+        margin-top: 16px;
+
+        font-size: 1.25rem;
     }
 
 
     #memoryDescription {
         font-size: 0.9rem;
 
-        max-width: 82vw;
+        line-height: 1.45;
     }
 
 
     #restartButton {
-        bottom: 2.5%;
+        bottom: 1.5rem;
 
-        font-size: 34px;
+        font-size: 32px;
     }
 
 }
