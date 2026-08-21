@@ -417,7 +417,6 @@ function preloadMemory(index) {
     const item =
         memories[index];
 
-
     if (isVideo(item.file)) {
 
         const video =
@@ -466,6 +465,50 @@ function updateText(item) {
         item.description
             ? "block"
             : "none";
+}
+
+
+/* =================================
+   NAVIGATION VISIBILITY
+================================= */
+
+function updateNavigation() {
+
+    /*
+     * אין צורך בחץ אחורה
+     * בשקופית הראשונה.
+     */
+
+    if (currentMemory === 0) {
+
+        previousButton.style.visibility =
+            "hidden";
+
+    } else {
+
+        previousButton.style.visibility =
+            "visible";
+    }
+
+
+    /*
+     * החץ קדימה לא מופיע
+     * בשקופית האחרונה.
+     */
+
+    if (
+        currentMemory ===
+        memories.length - 1
+    ) {
+
+        nextButton.style.visibility =
+            "hidden";
+
+    } else {
+
+        nextButton.style.visibility =
+            "visible";
+    }
 }
 
 
@@ -558,6 +601,8 @@ function showMemory(
 
         updateRestartButton();
 
+        updateNavigation();
+
         preloadMemory(index + 1);
 
         return;
@@ -611,6 +656,8 @@ function showMemory(
         updateText(item);
 
         updateRestartButton();
+
+        updateNavigation();
 
 
         memory.style.transition =
