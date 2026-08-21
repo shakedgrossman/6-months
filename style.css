@@ -173,17 +173,13 @@ body {
 }
 
 
-/* =================================
-   MEDIA
-================================= */
-
 #memoryImage,
 #memoryVideo {
     display: block;
 
-    width: min(55vw, 500px);
+    width: min(70vw, 600px);
 
-    height: min(55vh, 430px);
+    height: min(65vh, 500px);
 
     object-fit: contain;
 
@@ -191,30 +187,23 @@ body {
 }
 
 
-/* =================================
-   TITLE
-================================= */
+#memoryVideo {
+    display: none;
+}
+
 
 #memoryTitle {
-
     margin-top: 18px;
 
-    font-size: 1.45rem;
+    font-size: 1.25rem;
 
     font-weight: 400;
 
     color: var(--beige);
-
-    text-align: center;
 }
 
 
-/* =================================
-   DATE
-================================= */
-
 #memoryDate {
-
     margin-top: 8px;
 
     font-family:
@@ -224,23 +213,16 @@ body {
 
     font-size: 0.7rem;
 
-    letter-spacing: 0.15em;
+    letter-spacing: 0.18em;
 
     color: var(--muted);
-
-    text-align: center;
 }
 
 
-/* =================================
-   DESCRIPTION
-================================= */
-
 #memoryDescription {
-
     margin-top: 12px;
 
-    max-width: 560px;
+    max-width: 600px;
 
     font-size: 0.95rem;
 
@@ -249,8 +231,6 @@ body {
     color: var(--beige);
 
     white-space: pre-line;
-
-    text-align: center;
 }
 
 
@@ -259,13 +239,14 @@ body {
 ================================= */
 
 .nav-button {
-
     position: absolute;
 
     top: 50%;
 
-    width: auto;
-    height: auto;
+    width: 48px;
+    height: 48px;
+
+    transform: translateY(-50%);
 
     border: none;
 
@@ -273,89 +254,74 @@ body {
 
     color: var(--beige);
 
-    font-size: 32px;
+    font-size: 38px;
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    line-height: 1;
+
+    font-family: Arial, sans-serif;
 
     cursor: pointer;
 
     z-index: 20;
-
-    padding: 12px;
 
     display: flex;
 
     align-items: center;
     justify-content: center;
 
+    padding: 0;
+
     transition:
         opacity 0.3s ease,
         transform 0.3s ease;
 }
 
 
-/* =================================
-   PREVIOUS — LEFT
-================================= */
+/* LEFT */
 
 .previous {
-
-    left: 4%;
-
-    transform:
-        translateY(-50%);
+    left: 2.5%;
 }
 
 
-.previous:hover {
-
-    transform:
-        translateY(-50%)
-        translateX(-5px);
-}
-
-
-/* =================================
-   NEXT — RIGHT
-================================= */
+/* RIGHT */
 
 .next {
+    right: 2.5%;
+}
 
-    right: 4%;
 
+/* Hover */
+
+.previous:hover {
     transform:
-        translateY(-50%);
+        translateY(-50%)
+        translateX(-4px);
 }
 
 
 .next:hover {
-
     transform:
         translateY(-50%)
-        translateX(5px);
+        translateX(4px);
 }
 
 
 /* =================================
-   RESTART
+   RESTART / REPLAY
 ================================= */
 
-.restart-button {
-
+#restartButton {
     position: absolute;
 
     left: 50%;
 
     bottom: 3%;
 
-    transform:
-        translateX(-50%);
+    width: 48px;
+    height: 48px;
 
-    width: auto;
-    height: auto;
+    transform: translateX(-50%);
 
     border: none;
 
@@ -363,22 +329,26 @@ body {
 
     color: var(--beige);
 
-    font-size: 30px;
+    font-size: 35px;
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    line-height: 1;
+
+    font-family: Arial, sans-serif;
 
     cursor: pointer;
 
-    z-index: 20;
+    z-index: 30;
 
-    padding: 8px;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
 
     opacity: 0;
 
-    visibility: hidden;
+    pointer-events: none;
 
     transition:
         opacity 0.3s ease,
@@ -386,20 +356,17 @@ body {
 }
 
 
-.restart-button.visible {
-
+#restartButton.visible {
     opacity: 1;
 
-    visibility: visible;
+    pointer-events: auto;
 }
 
 
-.restart-button:hover {
-
+#restartButton:hover {
     transform:
         translateX(-50%)
-        rotate(-15deg)
-        scale(1.08);
+        scale(1.1);
 }
 
 
@@ -410,65 +377,57 @@ body {
 @media (max-width: 600px) {
 
     #memory {
-
-        width: 82vw;
+        width: 88vw;
     }
 
 
     #memoryImage,
     #memoryVideo {
+        width: 86vw;
 
-        width: 78vw;
-
-        height: 52vh;
+        height: 62vh;
     }
 
 
     #opening h1 {
-
         font-size: 2.4rem;
     }
 
 
-    #memoryTitle {
-
-        font-size: 1.25rem;
-    }
-
-
-    #memoryDescription {
-
-        max-width: 80vw;
-
-        font-size: 0.88rem;
-
-        line-height: 1.5;
-    }
-
-
     .nav-button {
+        font-size: 36px;
 
-        font-size: 28px;
-
-        padding: 10px;
+        width: 42px;
+        height: 42px;
     }
 
 
     .previous {
-
-        left: 2%;
+        left: 1%;
     }
 
 
     .next {
-
-        right: 2%;
+        right: 1%;
     }
 
 
-    .restart-button {
+    #memoryTitle {
+        font-size: 1.15rem;
+    }
 
-        bottom: 2%;
+
+    #memoryDescription {
+        font-size: 0.9rem;
+
+        max-width: 82vw;
+    }
+
+
+    #restartButton {
+        bottom: 2.5%;
+
+        font-size: 34px;
     }
 
 }
