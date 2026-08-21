@@ -33,8 +33,8 @@ body {
     color: var(--beige);
 
     font-family:
-        "Cormorant Garamond",
         Georgia,
+        "Times New Roman",
         serif;
 
     overflow: hidden;
@@ -76,25 +76,16 @@ body {
 
 
 #opening h1 {
-    font-family:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
-
     font-size:
-        clamp(2.8rem, 7vw, 5rem);
+        clamp(2.5rem, 7vw, 5rem);
 
-    font-weight: 300;
+    font-weight: 400;
 
     letter-spacing: 0.04em;
 
     margin-bottom: 45px;
 }
 
-
-/* =================================
-   PLAY BUTTON
-================================= */
 
 #playButton {
     width: 58px;
@@ -120,7 +111,6 @@ body {
 
 #playButton:hover {
     background: var(--beige);
-
     color: var(--background);
 
     transform: scale(1.05);
@@ -157,7 +147,6 @@ body {
 
 #timeline.active {
     opacity: 1;
-
     pointer-events: auto;
 }
 
@@ -167,11 +156,9 @@ body {
 ================================= */
 
 #memory {
-
     width: min(75vw, 650px);
 
     display: flex;
-
     flex-direction: column;
 
     align-items: center;
@@ -180,47 +167,22 @@ body {
 
     opacity: 1;
 
-    transform: translateX(0);
-
     transition:
-        transform 0.45s ease,
-        opacity 0.45s ease;
-
-    will-change:
-        transform,
-        opacity;
+        transform 0.7s ease,
+        opacity 0.7s ease;
 }
 
 
 /* =================================
-   MEDIA
+   IMAGE
 ================================= */
 
-#mediaContainer {
-
-    width: 100%;
-
-    height: min(55vh, 430px);
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    overflow: visible;
-}
-
-
-#memoryImage,
-#memoryVideo {
-
+#memoryImage {
     display: block;
 
-    width: auto;
+    width: min(60vw, 500px);
 
-    max-width: 100%;
-
-    height: min(52vh, 410px);
+    height: min(55vh, 430px);
 
     object-fit: contain;
 
@@ -228,84 +190,74 @@ body {
 }
 
 
+/* =================================
+   VIDEO
+================================= */
+
 #memoryVideo {
     display: none;
+
+    width: min(60vw, 500px);
+
+    height: min(55vh, 430px);
+
+    object-fit: contain;
+
+    border: none;
 }
 
 
 /* =================================
-   MEMORY INFO
+   TITLE
 ================================= */
 
-#memoryInfo {
-
+#memoryTitle {
     margin-top: 18px;
 
-    max-width: 600px;
+    font-size: 1.25rem;
 
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-}
-
-
-#memoryTitle {
-
-    font-family:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
-
-    font-size:
-        clamp(1.4rem, 2.7vw, 1.8rem);
+    line-height: 1.35;
 
     font-weight: 400;
-
-    letter-spacing: 0.04em;
-
-    margin-bottom: 5px;
 }
 
 
+/* =================================
+   DATE
+================================= */
+
 #memoryDate {
+    margin-top: 7px;
 
     font-family:
-        "Assistant",
         Arial,
+        Helvetica,
         sans-serif;
 
-    font-size: 0.72rem;
+    font-size: 0.7rem;
 
     letter-spacing: 0.16em;
 
     color: var(--muted);
-
-    margin-bottom: 10px;
 }
 
 
+/* =================================
+   DESCRIPTION
+================================= */
+
 #memoryDescription {
+    margin-top: 12px;
 
-    max-width: 500px;
-
-    font-family:
-        "Assistant",
-        Arial,
-        sans-serif;
+    max-width: 560px;
 
     font-size: 0.95rem;
 
-    font-weight: 300;
-
     line-height: 1.6;
 
+    white-space: pre-line;
+
     color: var(--beige);
-
-    direction: rtl;
-
-    text-align: center;
 }
 
 
@@ -314,13 +266,12 @@ body {
 ================================= */
 
 .nav-button {
-
     position: absolute;
 
-    top: 50%;
+    left: 50%;
 
-    width: 65px;
-    height: 90px;
+    width: 50px;
+    height: 50px;
 
     border: none;
 
@@ -328,14 +279,9 @@ body {
 
     color: var(--beige);
 
-    font-size: 48px;
+    font-size: 27px;
 
-    font-family:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
-
-    font-weight: 300;
+    font-family: Georgia, serif;
 
     cursor: pointer;
 
@@ -346,7 +292,94 @@ body {
     align-items: center;
     justify-content: center;
 
-    opacity: 0.75;
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* Previous */
+
+.previous {
+    top: 3%;
+
+    transform:
+        translateX(-50%);
+}
+
+
+.previous:hover {
+    transform:
+        translateX(-50%)
+        translateY(-5px);
+}
+
+
+/* Next */
+
+.next {
+    bottom: 3%;
+
+    transform:
+        translateX(-50%);
+}
+
+
+.next:hover {
+    transform:
+        translateX(-50%)
+        translateY(5px);
+}
+
+
+/* Hide previous button on first memory */
+
+.nav-button.hidden {
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* =================================
+   RESTART BUTTON
+================================= */
+
+#restartButton {
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 3%;
+
+    width: 50px;
+    height: 50px;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--beige);
+
+    font-size: 27px;
+
+    font-family: Georgia, serif;
+
+    cursor: pointer;
+
+    z-index: 20;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform:
+        translateX(-50%);
 
     transition:
         opacity 0.3s ease,
@@ -354,88 +387,7 @@ body {
 }
 
 
-.previous {
-
-    left: 7%;
-
-    transform:
-        translateY(-50%);
-}
-
-
-.next {
-
-    right: 7%;
-
-    transform:
-        translateY(-50%);
-}
-
-
-.previous:hover {
-
-    opacity: 1;
-
-    transform:
-        translateY(-50%)
-        translateX(-5px);
-}
-
-
-.next:hover {
-
-    opacity: 1;
-
-    transform:
-        translateY(-50%)
-        translateX(5px);
-}
-
-
-/* =================================
-   RESTART
-================================= */
-
-#restartButton {
-
-    position: absolute;
-
-    bottom: 4%;
-
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    border: none;
-
-    background: transparent;
-
-    color: var(--muted);
-
-    font-family:
-        "Assistant",
-        Arial,
-        sans-serif;
-
-    font-size: 0.72rem;
-
-    letter-spacing: 0.12em;
-
-    cursor: pointer;
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    transition:
-        opacity 0.4s ease,
-        color 0.3s ease;
-}
-
-
 #restartButton.visible {
-
     opacity: 1;
 
     pointer-events: auto;
@@ -443,8 +395,9 @@ body {
 
 
 #restartButton:hover {
-
-    color: var(--beige);
+    transform:
+        translateX(-50%)
+        translateY(-5px);
 }
 
 
@@ -459,70 +412,29 @@ body {
     }
 
 
-    #mediaContainer {
+    #memoryImage,
+    #memoryVideo {
+        width: 82vw;
+
         height: 48vh;
     }
 
 
-    #memoryImage,
-    #memoryVideo {
-
-        max-width: 86vw;
-
-        height: 45vh;
-    }
-
-
-    #memoryInfo {
-
-        margin-top: 12px;
-
-        max-width: 86vw;
-    }
-
-
     #memoryTitle {
-
-        font-size: 1.35rem;
+        font-size: 1.15rem;
     }
 
 
     #memoryDescription {
+        max-width: 84vw;
 
-        font-size: 0.88rem;
+        font-size: 0.9rem;
 
         line-height: 1.5;
     }
 
 
-    .nav-button {
-
-        width: 45px;
-
-        font-size: 40px;
-    }
-
-
-    .previous {
-
-        left: 2%;
-    }
-
-
-    .next {
-
-        right: 2%;
-    }
-
-
-    #restartButton {
-
-        bottom: 2.5%;
-    }
-
-
     #opening h1 {
-
         font-size: 2.4rem;
     }
 
